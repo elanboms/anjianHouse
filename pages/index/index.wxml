@@ -1,0 +1,96 @@
+<!--index.wxml-->
+<import src='../template/activity-template.wxml' />
+<import src='../template/house-template.wxml' />
+
+<view class="root">
+
+  <view class="top main flex">
+    <view class="top-right flex">
+      <image class="seach-img" src="../../images/search@2x.png"></image>
+      <input bindblur='searchTap' placeholder="请输入搜索关键词"></input>
+    </view>
+  </view>
+
+  <swiper class="banner main" easing-function='' autoplay="{{true}}" indicator-dots="true" indicator-color='#FFFFFF' indicator-active-color='#F6332D' interval="2000">
+    <block wx:for="{{imgList}}" wx:key="idx">
+      <swiper-item class='banner-con'>
+        <image src="{{item.picurl}}" class="banner-img" catchtap='openBanner' data-url="{{item.piclink}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="today-news flex">
+    <image class="today-news-img" src="../../images/new-add@2x.png"></image>
+    <view class="today-news-tit">最新</view>
+    <view class="today-news-text elli" data-id="{{news[0].id}}" catchtap="openNewsDetail">{{news[0].title}}</view>
+  </view>
+
+  <view class="top-card flex-b flex-wr">
+    <view class="top-section" data-idx="1" catchtap="click">
+      <image src="../../images/top-section1.png"></image>
+      <text>房贷计算器</text>
+    </view>
+    <view class="top-section" data-idx="2" catchtap="click">
+      <image src="../../images/top-section2.png"></image>
+      <text>置业顾问</text>
+    </view>
+    <view class="top-section" data-idx="3" catchtap="click">
+      <image src="../../images/top-section3.png"></image>
+      <text>安家经纪人</text>
+    </view>
+    <view class="top-section" data-idx="4" catchtap="click">
+      <image src="../../images/top-section4.png"></image>
+      <text>项目全景</text>
+    </view>
+  </view>
+</view>
+<view class="hr-15"></view>
+
+<!-- 热门活动 -->
+<view class="activity root flex-c">
+
+  <image class="activity-bg" src="../../images/activity-bg.png"></image>
+  <view class="title flex-b">
+    <view class="title-left h2">热门活动</view>
+    <view class="title-right" catchtap="openHotActivityList">
+      <text class="font-28 gray">更多</text>
+      <image class="title-more-img" src="../../images/title-more.png"></image>
+    </view>
+  </view>
+  <image wx:if='{{top_deposit.image_deps}}' class="addv-img" data-id="{{top_deposit.id}}" catchtap="openAddv" mode="widthFix" src="{{top_deposit.image_deps}}"></image>
+  <view class="acti-area">
+    <block wx:for="{{activityList}}" wx:key=''>
+      <template is='activity-template' data='{{...item}}'></template>
+    </block>
+  </view>
+
+</view>
+
+<!-- 推荐楼盘 -->
+<view class="house root flex-c">
+
+  <view class="title flex-b">
+    <view class="title-left h2">推荐楼盘</view>
+    <view class="title-right" catchtap="openHouseList">
+      <text class="font-28 gray">更多</text>
+      <image class="title-more-img" src="../../images/title-more.png"></image>
+    </view>
+  </view>
+
+  <view class="house-area">
+    <block wx:for="{{houseList}}" wx:for-index='idx' wx:key=''>
+      <template is='house-template' data='{{...item,idx}}'></template>
+    </block>
+  </view>
+
+</view>
+
+
+<!-- 广告弹窗 -->
+<view class="dia-area" catchtap="closeAdd"  hidden="{{isadvertise=='0'}}">
+  <view class="mengban" catchtouchmove="preventTouchMove"></view>
+  <view class="dia-add-con"  catchtouchmove="preventTouchMove">
+    <image class="index-addv" src="{{picture.picurl}}"></image>
+  </view>
+  <image class="dia-close" src="/images/close@2x.png"></image>
+</view>

@@ -1,0 +1,7 @@
+/* pages/mine/my-collect/my-collect.wxss */
+@import "../../template/house-template.wxss";
+
+/* 楼盘列表 */
+.house-area {
+  margin-top: 30rpx;
+}

@@ -1,0 +1,74 @@
+<view class='container'>
+  <form bindsubmit='formSubmit'>
+    <view class='section'>
+      <image class='userImg' src='{{userinfo.avatarUrl}}'></image>
+    </view>
+    <view class='section'>
+      <text class='title'>昵称</text> 
+      <input type='text' name='name' placeholder='请输入' disabled='disabled' readonly='true' value='{{userinfo.nickName}}'></input>
+    </view>
+    <view class='section'>
+      <text class='title'>姓名</text>
+      <input type='text' name='username' placeholder='请输入' value='{{userinfo.trueName}}'></input>
+    </view>
+    <view class='section'>
+      <text class='title'>微信</text>
+      <input type='text' name='weixin' placeholder='请输入' value='{{userinfo.weixin}}'></input>
+    </view>
+    <view class='section'>
+      <text class='title'>手机</text>
+      <input type='number' name='phone' placeholder='请输入' value='{{userinfo.telphone}}'></input>
+    </view>
+    <!-- <view class='section'>
+      <text class='title'>客户身份</text>
+      <view class='nav'>
+        <block wx:for='{{nav}}' wx:key='idx'>
+          <view name='role' class='{{navIndex == index?"active":""}}' data-index='{{index}}' catchtap='chooseNav'>
+            {{item}}
+          </view>
+        </block>
+      </view>
+    </view> -->
+    <view class='section'>
+      <text class='title'>意向</text>
+      <picker bindchange="intentionChange" range="{{intention}}">
+        <input name='smile' value='{{intention[intentionIndex]}}' disabled='true' wx:if='{{intentionIndex}}'></input>
+        <input placeholder='请选择' disabled='true' wx:else></input>
+      </picker>
+    </view>
+    <view class='titleCon' catchtap='moreHide'>
+      <text>更多资料</text>
+      <span class='iconfont icon-xiangxiajiantou {{moreHide?"toTop":""}}'></span>
+    </view>
+    <view hidden='{{!moreHide}}'>
+      <view class='section'>
+        <text class='title'>性别</text>
+        <picker bindchange="sexChange" range="{{sex}}">
+          <input name='gender' value='{{sex[sexIndex]}}' disabled='true' wx:if='{{sexIndex}}'></input>
+          <input placeholder='请选择' disabled='true' wx:else></input>
+        </picker>
+      </view>
+      
+      <view class='section'>
+        <text class='title'>行业</text>
+        <!-- <picker bindchange="industryChange" range="{{industry}}"> -->
+          <!-- <input name='industry' value='{{industry[industryIndex]}}' disabled='true' wx:if='{{industryIndex}}'></input> -->
+          <input type='text' placeholder='请输入' name='job' value='{{userinfo.job}}'></input>
+        <!-- </picker> -->
+      </view>
+      <view class='section'>
+        <text class='title'>选择地区</text>
+        <picker mode="region" bindchange="bindRegionChange">
+          <input name='location' value='{{region[0]}},{{region[1]}},{{region[2]}}' disabled='true' wx:if='{{region}}'></input>
+          <input placeholder='请选择' disabled='true' wx:else></input>
+        </picker>
+      </view>
+      <view class='section'>
+        <text class='title'>详细地址</text>
+        <input type='text' name='address' placeholder='请输入' value='{{userinfo.address}}'></input>
+      </view>
+    </view>
+
+    <button class='submit' form-type='submit'>保存</button>
+  </form>
+</view>

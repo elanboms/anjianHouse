@@ -1,0 +1,15 @@
+<!--packageA/pages/addMessages/addMessages.wxml-->
+<form bindsubmit="formSubmit">
+<view class='addMessages-wrap'>
+  <textarea bindblur="textareaHandle" placeholder="输入话术" placeholder-class='placeholder' class='textarea' name='content' />
+
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{group}}" range-key='title'> 
+    <view class="classify">
+      <text>选择分类</text><text>{{group[index]['title']}}</text>
+    </view>
+  </picker>
+
+  <button class='btn save' form-type='submit'>保存</button>
+  <button class='btn back'>返回</button>
+</view>
+</form>

@@ -1,0 +1,22 @@
+<!--pages/login/login.wxml-->
+
+<view class='container'> 
+  <view class='info'>
+    <!-- <image src='/images/logo.png'></image> -->
+    <open-data class="userAvatarUrl" type="userAvatarUrl"></open-data>
+    <text>{{authname}}</text>
+  </view>
+  <view class='con'>{{authname}}小程序将使用</view>
+  <view class='text'>
+    <text></text>你的公开信息（昵称，头像等）</view>
+
+    <form class='getFormId' bindsubmit='getFormId' report-submit="true">
+      <view class='formIdBtnCon'>
+        <button form-type='submit' class='formIdBtn'>
+          <button class='formIdBtnCon' form-type='submit' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">允许使用</button>
+        </button>
+      </view>
+    </form>
+                                            
+  <view class='cancel' bindtap="cancel">取消</view>
+</view>

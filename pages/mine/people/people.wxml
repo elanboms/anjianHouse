@@ -1,0 +1,22 @@
+<!--pages/mine/people/people.wxml-->
+<view style="height:8rpx;"></view>
+
+<!-- 顾问列表 -->
+<block wx:for='{{peopleList}}' wx:key=''>
+  <view class="people-section flex-b">
+    <view class="flex" data-id="{{item.id}}" bindtap="gocard">
+      <image class="user-img" src="{{item.avatarUrl}}"></image>
+      <view class="flex-c">
+        <view class="flex">
+          <view class="people-name">{{item.nickName}}</view>
+          <view class="people-sex">{{(item.gender=='0')?'未知':(item.gender=='1'?'男':'女')}}</view>
+        </view>
+        <view class="people-phone">{{item.telphone}}</view>
+      </view>
+    </view>
+    <view class="people-right flex" data-phone="{{item.telphone}}" catchtap="calltap">
+      <view class="hr0"></view>
+      <image class="people-call" src="../../../images/phone-call@2x.png"></image>
+    </view>
+  </view>
+</block>

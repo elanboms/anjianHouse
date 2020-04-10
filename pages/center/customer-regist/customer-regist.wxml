@@ -1,0 +1,135 @@
+<!--pages/center/customer-regist/customer-regist.wxml-->
+<form bindsubmit="formSubmit" report-submit="true">
+<!-- 客户基本信息 -->
+<view class="customer-tit h2">客户基本信息</view>
+<view class="root">
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">客户姓名</view>
+    <input class="customer-input" name='name' placeholder="请输入客户姓名"></input>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">客户等级</view>
+    <picker mode='selector' value="{{index}}" range="{{customerRank}}" range-key="{{'name'}}" bindchange="bindRankChange">
+      <input class="customer-input" name='rank'  disabled="true" value="{{customerRank[index].name}}" placeholder="请选择 >"></input>
+    </picker>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">联系电话</view>
+    <input class="customer-input" name='phone' placeholder="请输入联系方式"></input>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">居住区域</view>
+    <input class="customer-input" name='address' placeholder="请输入居住地址"></input>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">工作职业</view>
+    <input class="customer-input" name='job' value="" placeholder="请输入工作职业"></input>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">家庭结构</view>
+    <picker mode='selector' value="{{homeindex}}" range="{{homeList}}" range-key="{{'name'}}" bindchange="bindHomeChange">
+      <input class="customer-input" name='home'  disabled="true" value="{{homeList[homeindex].name}}" placeholder="请选择 >"></input>
+    </picker>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">来访日期</view>
+    <picker mode='date' bindchange="bindDateChange">
+      <input class="customer-input" name='date' value="{{date}}" disabled="true" placeholder="请选择 >"></input>
+    </picker>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">来访途径</view>
+    <input class="customer-input" name='way' placeholder="请输入来访途径"></input>
+  </view>
+
+
+</view>
+
+
+<!-- 客户意向需求 -->
+<view class="customer-tit h2">客户意向需求</view>
+<view class="root">
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">推荐产品</view>
+    <picker mode='selector' value="{{productIndex}}" range="{{productList}}" range-key="{{'title'}}"   bindchange="bindProductChange">
+      <input class="customer-input" name='product'  disabled="true" value="{{productList[productIndex].title}}" placeholder="请选择 >"></input>
+    </picker>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">需求面积</view>
+    <input class="customer-input" name='area' placeholder="请输入需求面积"></input>
+
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">需求楼层</view>
+    <input class="customer-input" name='height' placeholder="请输入需求楼层"></input>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">预算单价</view>
+    <input class="customer-input" name='price' placeholder="请输入预算单价"></input>
+  </view>
+  <view class="hr-2"></view>
+
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">购房资格</view>
+    <view>
+      <radio-group name='houseRadio' class="radio-group" bindchange="houseRadioChange">
+        <label class="radio" wx:for="{{status}}" >
+          <radio color='#F6332D'  value="{{item.value}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">置业顾问名称</view>
+    <input class="customer-input" name='cusName' value="" placeholder="请输入顾问名称"></input>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">置业次数</view>
+    <input class="customer-input" name='num' value="" placeholder="请输入次数"></input>
+  </view>
+  <view class="hr-2"></view>
+
+  <view class="customer-section flex-b font-30">
+    <view class="customer-left">微信添加情况</view>
+    <view>
+      <radio-group name='wxStatus' class="radio-group" bindchange="wxRadioChange">
+        <label class="radio" wx:for="{{wxStatus}}">
+          <radio color='#F6332D'  value="{{item.value}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="hr-2"></view>
+
+  <button class="customer-btn" form-type="submit" bindtap="submitBtn">提交</button>
+
+</view>
+</form>

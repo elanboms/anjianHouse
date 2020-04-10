@@ -1,0 +1,49 @@
+/* pages/house-detail/appointSuccess/appointSuccess.wxss */
+
+.box {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 95rpx;
+}
+
+.appo-img {
+  width: 205rpx;
+  height: 205rpx;
+  margin-top: 100rpx;
+  margin-left: 180rpx;
+  margin-bottom: 60rpx;
+}
+
+.appo-tit {
+  margin-bottom: 34rpx;
+  font-size: 42rpx;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+}
+
+.appo-btn-1 {
+  margin-top: 100rpx;
+  margin-bottom: 45rpx;
+  width: 560rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border: 2rpx solid rgba(246, 51, 45, 1);
+  border-radius: 45rpx;
+  font-size: 32rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(246, 51, 45, 1);
+}
+
+.appo-btn-2 {
+  width: 560rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: rgba(246, 51, 45, 1);
+  border-radius: 45rpx;
+  font-size: 32rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}

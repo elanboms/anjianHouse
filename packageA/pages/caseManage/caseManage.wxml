@@ -1,0 +1,42 @@
+<!--packageA/pages/caseManage/caseManage.wxml-->
+<!-- <view class='menu'>
+  <ul>
+    <li class="active">
+        <view class='img-wrap'><image src='/img/icon3.png' mode='widthFix'></image></view>
+        <text>案例库</text>
+    </li>
+  </ul>
+</view> -->
+
+<!-- <view class='search-wrap'>
+  <scroll-view scroll-x class='sort-wrap'> -->
+      <!-- 一级分类 -->
+      <!-- <block wx:for="{{ searchCondi }}" wx:for-item="cate1">
+        <view class="{{cate1_id == cate1.category_id ? 'item active':'item'}}" bindtap='sortHandle' data-cateid="{{ cate1.category_id }}">{{ cate1.name  }}<span class="{{(cate1_id == cate1.category_id && showSortItem) ? 'iconfont icon-xiangshangjiantou':'iconfont icon-xiangxiajiantou'}}"></span></view>
+      </block>
+  </scroll-view>
+  <view class='sort-item-info'> -->
+      <!-- 二级分类 -->
+      <!-- <block wx:for="{{ searchCondi }}" wx:for-item="cate1">
+        <view class='sort-item' wx:if="{{cate1.category_id == cate1_id && showSortItem }}">
+            <view class='item'><text bindtap='handleChoseCate1All' class="{{ (cate2_id == '' && cate1_id_chosed == cate1.category_id) ? 'active':''}}" id="" data-pid="{{ cate1.category_id }}">全部</text></view>
+            <block wx:for="{{ cate1.child }}" wx:for-item="cate2">
+              <view class='item'><text bindtap='sortItemHandle' class="{{ cate2_id_chosed[0] == cate2.category_id ? 'active':''}}" id="{{cate2.category_id}}" data-pid="{{ cate1.category_id }}">{{cate2.name}}</text></view>
+            </block>
+        </view>
+      </block>
+  </view>
+</view> -->
+
+<view class='case-wrap'>
+  <!-- 案例图 -->
+  <view wx:for="{{ cases }}" wx:for-index="index" wx:for-item="case" class='case-item'>
+    <image bindtap='toDetail' id="{{ case.id }}" src="{{ case.img }}" mode='widthFix' style="width:100%;"></image>
+    <view id="{{ case.id }}" class='case-row'>
+      <text class='name'>{{ case.title }}</text>
+      <view class='right'>
+        <switch id="{{ case.id }}" data-state="{{case.state}}" checked="{{ case.state == 1 ? true:false }}" bindchange="switchHandle"/>
+      </view>
+    </view>
+  </view>
+</view>

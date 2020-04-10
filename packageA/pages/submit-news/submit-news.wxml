@@ -1,0 +1,26 @@
+<!--packageA/pages/submit-news/submit-news.wxml-->
+<form report-submit="true" bindsubmit="submitNewsForm">
+<view class="root">
+  <textarea class="textarea" name='textCon' placeholder="说点什么吧">
+  </textarea>
+
+  <view class="flex photo-area">
+    <block wx:for='{{add_img}}' wx:for-index='idx'>
+      <view class="photo-box">
+        <image class="photo-close" data-idx="{{idx}}" catchtap="removePhoto" src="/images/delete2.png"></image>
+        <image class='photo-img' data-idx="{{idx}}" catchtap="removePhoto" src="{{item}}"></image>
+      </view>
+    </block>
+    <view class="flex-c upload-box" bindtap='chooseIMG'>
+      <image class='add-img' src="/images/upload.svg"></image>
+      <view>上传图片</view>
+    </view>
+
+  </view>
+
+  <button class="btn" form-type="submit">发布</button>
+
+  <button class="btn btn2" catchtap="gobackTap">取消</button>
+</view>
+
+</form>

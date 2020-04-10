@@ -1,0 +1,19 @@
+page{
+  background: #f5f5f5;
+}
+.card{
+  width: 600rpx;
+  height: 780rpx;
+  margin: 30rpx auto;
+}
+.download{
+  width: 90%;
+  line-height: 90rpx;
+  margin: 50rpx auto;
+  background: #272B56;
+  color: #fff;
+  text-align: center;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+}
+.tips{font-size: 28rpx;text-align: center;color: #888;}

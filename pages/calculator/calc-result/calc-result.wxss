@@ -1,0 +1,86 @@
+/* pages/calculator/calc-result/calc-result.wxss */
+
+.title{
+    height: 90rpx;
+    color: #ffffff;
+    background-color: #E50014;
+    font-size: 34rpx;
+    line-height: 90rpx;
+    text-align: center;
+}
+.content{
+    height: 110rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #E5E5E5;
+    display:flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 30rpx;
+}
+.content-title{
+    color:#757575 
+}
+.prompt{
+    font-size:26rpx;
+    color: #A8A8A8;
+    text-align: center;
+    margin-top: 40rpx;
+}
+.monthpay{
+margin-top:30rpx;
+color: #fff;
+background-color:#E50014;
+font-size:32rpx;
+line-height:70rpx;
+text-align:center;
+border-radius: 10rpx;
+height: 70rpx;
+}
+.list{
+position: fixed;
+width: 710rpx;
+z-index: 20;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+border-radius: 10rpx;
+overflow: hidden;
+}
+.tab-list{
+display: flex;
+flex-wrap: nowrap;
+align-items: center;
+}
+.tab-list text{
+width: 25%;
+height:70rpx;
+font-size:30rpx;
+text-align: center;
+line-height: 70rpx; 
+color:#757575;
+background-color: #f5f5f5;
+}
+.content-list{
+background-color: #fff;
+height:860rpx;
+overflow:auto;
+}
+.content-list view{
+display: flex;
+flex-wrap: nowrap;
+align-items: center;
+border-bottom: 1rpx solid #f5f5f5;
+box-sizing: border-box;
+}
+.content-list view text{
+width: 25%;
+height:70rpx;
+font-size:30rpx;
+text-align: center;
+line-height: 70rpx; 
+}
+::-webkit-scrollbar{
+width:8rpx;
+background-color: #f5f5f5;
+}

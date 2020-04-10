@@ -1,0 +1,28 @@
+/* pages/center/add-information/regist-book/regist-book.wxss */
+@import "/wxParse/wxParse.wxss";
+
+.tit {
+  margin: 60rpx 0 34rpx 0;
+  width: 100%;
+  text-align: center;
+  font-size: 40rpx;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: rgba(117, 117, 117, 1);
+}
+
+.title {
+  margin: 50rpx 0 30rpx 0;
+  font-size: 30rpx;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: rgba(106, 104, 110, 1);
+}
+
+.root text {
+  font-size: 24rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(168, 168, 168, 1);
+  line-height: 52rpx;
+}

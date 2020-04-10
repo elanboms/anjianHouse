@@ -1,0 +1,29 @@
+<!-- 热门活动模板 -->
+
+<template name='activity-template'>
+
+  <view class="acti-section" data-id="{{id}}" catchtap="openHotActivityCon">
+    <image class="acti-section-img" src="{{logourl}}"></image>
+    <view class="acti-section-text elli">{{title}}</view>
+    <view class="acti-section-time elli">活动截止：{{endTime}}</view>
+    <view class="acti-btn">{{is_sign=='0'?'马上报名':'已报名'}}</view>
+    <image class="acti-posi-status" wx:if="{{open_state=='0'}}" src="../../images/activity-nostart@2x.png"></image>
+    <image class="acti-posi-status" wx:elif="{{open_state=='1'}}" src="../../images/activity-active.png"></image>
+    <image class="acti-posi-status" wx:else src="../../images/activity-finish@2x.png"></image>
+  </view>
+
+</template>
+
+<!-- 报名模板 -->
+<template name='sign-template'>
+
+  <view class="acti-section" data-id="{{activity_id}}" catchtap="openHotActivityCon">
+    <image class="acti-section-img" src="{{logourl}}"></image>
+    <view class="acti-section-text elli">{{title}}</view>
+    <view class="acti-section-time elli">报名时间：{{addtime}}</view>
+    <view class="acti-section-time elli">报名项目：{{build_name}}</view>
+    <view class="acti-btn">已报名</view>
+    <!--  -->
+  </view>
+
+</template>

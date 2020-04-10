@@ -1,0 +1,56 @@
+<!--pages/calculator/calc-result/calc-result.wxml-->
+
+<view class="container">
+    <view class="title">计算结果</view>
+        <view class="content main">
+            <view class="content-title">贷款总额</view>
+            <view class="number"><text>{{loanAll}}</text>万</view>
+        </view>
+
+         <view class="content main">
+            <view class="content-title">还款总额</view>
+            <view class="number"><text>{{repayAll}}</text>元</view>
+        </view>
+
+          <view class="content main">
+            <view class="content-title">支付利息</view>
+            <view class="number"><text>{{lxTotal}}</text>元</view>
+        </view>
+
+         <view class="content main">
+            <view class="content-title">贷款月数</view>
+            <view class="number"><text>{{monthAll}}</text>月</view>
+         </view>
+
+         <view class="content main" wx:if="{{huankuantype==0}}">
+            <view class="content-title">月均还款</view>
+            <view class="number"><text>{{emTotal}}</text>元</view>
+         </view>
+         <view class="content main" wx:else="{{huankuantype==1}}">
+            <view class="content-title">首月还款</view>
+            <view class="number"><text>{{emTotal}}</text>元</view>
+         </view>
+
+        <view class="prompt">提示：计算结果仅供参考</view>
+        <view class="monthpay main" catchtap="mengshow" wx:if="{{isbenjinpay}}">查看月供详情</view>
+    <view class="mengban" wx:if="{{ismengshow}}" catchtap="cancel"></view>
+    <view class="list" wx:if="{{ismengshow}}">
+    <view class="tab-list">
+    <text>月份</text>
+    <text>月供本金</text>
+    <text>月供利息</text>
+    <text>月供总额</text>
+    </view>
+    <view class="content-list">
+    <block wx:for="{{list}}" wx:key="idx">
+    <view>
+    <text>{{item.qishu}}月</text>
+    <text>￥{{item.embenjin}}</text>
+    <text>￥{{item.emlx}}</text>
+    <text>￥{{item.emTotal}}</text>
+    </view>
+    </block>
+    </view>
+    </view>
+</view>
+

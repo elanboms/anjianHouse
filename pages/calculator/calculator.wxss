@@ -1,0 +1,195 @@
+/* pages/calculator/calculator.wxss */
+
+.container {
+  border-top: 1rpx solid #eee;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 109rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 32rpx;
+}
+
+.nav view {
+  line-height: 109rpx;
+  box-sizing: border-box;
+}
+
+.nav view.active {
+  color: #e50014;
+  border-bottom: 2rpx solid #e50014;
+}
+
+.detail-content {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  height: 108rpx;
+  border-bottom: 1rpx solid #eee;
+  position: relative;
+}
+
+.cac-list input {
+  width: 350rpx;
+  height: 70rpx;
+  border: 1rpx solid #eee;
+  text-align: right;
+  padding-right: 50rpx;
+}
+
+.busnessNum {
+  width: 140rpx !important;
+  padding-right: 0  !important;
+  text-align: center  !important;
+}
+.busnessNum-1{
+  margin-left: 30rpx;
+}
+.busnessNum-type{
+  width: 220rpx  !important;
+}
+
+.cac-list image {
+  width: 25rpx;
+  height: 13rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img-tap {
+  position: absolute;
+  width: 50rpx;
+  height: 70rpx;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.choose-type {
+  width: 400rpx;
+  height: 70rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  border: 1rpx solid #e50014;
+  border-radius: 8rpx;
+}
+
+.choose-type view {
+  width: 200rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #e50014;
+}
+
+.choose-type view.active {
+  background-color: #e50014;
+  color: #fff;
+}
+
+.submit {
+  margin-top: 120rpx;
+  width: 100%;
+  height: 90rpx;
+  color: #fff;
+  background-color: #e50014;
+  text-align: center;
+  line-height: 90rpx;
+  border-radius: 10rpx;
+}
+
+.choose-year, .loan {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 15;
+}
+
+.choose-year .title, .loan .title {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eee;
+}
+
+.year-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+
+.year-list view {
+  margin: 0 20rpx 20rpx 0;
+  width: 122rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border: 1rpx solid #eee;
+  box-sizing: border-box;
+}
+
+.year-list view.active {
+  color: #fff;
+  background-color: #e50014;
+  border: 1rpx solid #e50014;
+}
+
+.loan-list {
+  width: 720rpx;
+  margin-left: 30rpx;
+  font-size: 30rpx;
+}
+
+.loan-list view {
+  line-height: 60rpx;
+  height: 60rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.loan-list view.active {
+  color: #e50014;
+}
+
+.custom-loan {
+  font-size: 30rpx;
+  height: 70rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.choose-custom {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.custom-loan input {
+  width: 120rpx;
+  height: 38rpx;
+  border: 2rpx solid #666;
+  margin: 0 20rpx;
+  text-align: center;
+  line-height: 38rpx;
+  font-size: 30rpx;
+  display: inline-block;
+  box-sizing: border-box;
+}

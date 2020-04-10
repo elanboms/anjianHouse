@@ -1,0 +1,16 @@
+<!--pages/mine/my-share/my-share.wxml-->
+
+<block wx:for='{{shareList}}' wx:key='{{item.id}}'>
+  <view class="share-section flex-s" data-id="{{item.id}}" catchtap="openHouseDetail">
+    <image class="share-img" src="{{item.img}}"></image>
+    <view class="share-right flex-c">
+      <view class="flex-b">
+      <view class="share-name h2 elli">{{item.title}}</view>
+      <view class="share-look elli">共<text>{{item.viewnum}}</text>人点击</view>
+      </view>
+      <view class="share-price">约
+        <text class="share-price-num">{{item.saleCost}}</text></view>
+      <view class="share-address elli">{{item.location}}</view>
+    </view>
+  </view>
+</block>

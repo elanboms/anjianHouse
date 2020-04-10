@@ -1,0 +1,9 @@
+<!--pages/mine/my-collect/my-collect.wxml-->
+<import src='../../template/house-template.wxml' />
+
+<!-- 楼盘列表 -->
+<view class="house-area root">
+  <block wx:for="{{houseList}}" wx:for-index='idx' wx:key='id'>
+    <template is='house-template' data='{{...item,idx}}'></template>
+  </block>
+</view>

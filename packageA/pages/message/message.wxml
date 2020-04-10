@@ -1,0 +1,18 @@
+<!--packageA/pages/message/message.wxml-->
+<view class='addMessages' bindtap='addMessages'>添加话术</view>
+<view class='message_wrap'>
+  <scroll-view scroll-y class='left'>
+    <block wx:for="{{list}}" wx:key="message">
+      <view class="{{current == index ? 'item active':'item'}}" id="{{index}}" bindtap='messageHandle'>{{item.title}}</view>
+    </block>
+  </scroll-view>
+  <scroll-view scroll-y class='right'>
+    <block wx:for="{{list}}" wx:for-index='index' wx:key="messageInfo">
+      <view class='message-item' id="{{index}}" wx:if="{{current == index}}">
+        <block wx:for="{{item.child}}" wx:key="info" wx:for-index='iditem' wx:for-item='info' >
+          <view class='info-item' id="{{info.id}}" data-id="{{index}}" data-iditem="{{iditem}}" bindtap='delMessages'>{{info.content}}</view>
+        </block>
+      </view>
+    </block>
+  </scroll-view>
+</view>

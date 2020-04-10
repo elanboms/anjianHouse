@@ -1,0 +1,31 @@
+<!--pages/center/my-customer/my-customer.wxml-->
+<view class="root">
+
+  <block wx:for='{{customerList}}' wx:key=''>
+
+    <view class="cust-section" data-id="{{item.id}}" catchtap="openCustomerDetail">
+      <view class="flex-s"> 
+        <!-- <image class="cust-img" src="../../../images/exam.jpg"></image> -->
+        <view class="flex-c">
+          <view class="flex">
+            <view class="cust-name">{{item.name}}</view>
+            <!-- <view class="cust-tag">{{item.sex}}</view> -->
+            <view class="cust-tag">{{item.level_name}}</view>
+          </view>
+          <view class="cust-phone gray elli">联系电话：{{item.mobile}}</view>
+        </view>
+      </view>
+      <view class="hr-mag hr-2"></view>
+      <view class="gray elli">意向楼盘：{{item.build_name}}</view>
+      <view class="cust-time gray elli">来访时间：{{item.visit_date}}</view>
+
+      <image data-phone="{{item.phone}}" catchtap="callTap" class="position-call" src="../../../images/phone-call@2x.png"></image>
+
+    </view>
+
+  </block>
+
+
+
+
+</view>

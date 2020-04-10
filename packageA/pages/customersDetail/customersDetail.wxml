@@ -1,0 +1,72 @@
+<view class='container'> 
+  <view class='title'>{{userinfo.wechat_name}}
+    <text>客户</text>
+  </view> 
+  <view class='detail'>
+    <view class='user' catchtap='toperfectInfo'>
+      <image class='userImg' src='{{userinfo.avatarUrl}}'></image>
+      <view class='userInfo'>
+        <view>姓名：<text wx:if='{{userinfo.nickName}}'>{{userinfo.nickName}}</text><text wx:else>待录入</text></view>
+        <view>手机：<text wx:if='{{userinfo.telphone}}'>{{userinfo.phone}}</text><text wx:else>待录入</text></view>
+        <view>微信：<text wx:if='{{userinfo.weixin}}'>{{userinfo.weixin}}</text><text wx:else>待录入</text></view>
+      </view>
+    </view>
+    <view class='detailBtn'>
+      <view catchtap='tozhuanjie'>转接客户</view>
+      <view catchtap='toperfectInfo'>完善资料{{userinfo.complete}}%</view>
+    </view>
+  </view>
+  <view class='tips'>
+    <block wx:for='{{userinfo.tags}}' wx:key='idx'>
+      <text data-id='{{item.id}}' data-index='{{index}}' catchtap='delTips'>{{item.title}}</text>
+    </block>
+    <view catchtap='totipsAdd'>+标签</view>
+  </view>
+  <view class='text'>访问时间:
+    <text>{{userinfo.addtime}}</text> 来源:{{userinfo.source_text}}</view>
+  <view class='nav'>
+    <block wx:for='{{nav}}' wx:key='idx'>
+      <view class='{{navIndex == index?"active":""}}' data-index='{{index}}' catchtap='chooseNav'>
+        {{item}}
+      </view>
+    </block>
+  </view>
+
+  <view class='interactContainer' wx:if='{{navIndex == 0}}'>
+    <block wx:for='{{logslist}}'>
+      <view class='interact'>
+        <view class='dots'></view>
+        <view class='interactHead'>
+          {{item[0].addtimes}} 用户浏览了
+          <text wx:if='{{item[0].time}}'>{{item[0].time}}</text> 进行了{{item[0].num}}互动
+        </view>
+        <view class='interactList'>
+          <block wx:for='{{item}}' wx:for-item='it' wx:for-index='index1' wx:key='idx'>
+            <view>
+              {{it.addtime}} {{it.optxt}}<text wx:if='{{it.stoptime}}'>（停留了{{it.stoptime}}秒，浏览了{{it.percent}}的内容）</text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+    <view class='loadMore' catchtap='loadMore'>点击查看更多</view>
+  </view>
+
+  <!-- <view class='followContainer' wx:if='{{navIndex == 1}}'>
+    <block wx:for='{{following}}' wx:key='idx'> 
+      <view class='follow'>
+        <view class='dots'></view>
+        <view class='followHead'>{{item.date}} 回复客户</view>
+        <view class='followText'>回复内容：{{item.text}}</view>
+      </view>
+    </block>
+    <view class='loadMore'>点击查看更多</view>
+  </view> -->
+
+  <view wx:if='{{navIndex == 1}}'>
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ecPie }}" bind:init="pieInit"></ec-canvas>
+    <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ecLine }}" bind:init="lineInit"></ec-canvas>
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ecBar }}" bind:init="barInit"></ec-canvas>
+  </view>
+
+</view>

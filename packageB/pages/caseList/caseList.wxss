@@ -1,0 +1,12 @@
+/* pages/caseList/caseList.wxss */
+.case-wrap{background-color:#fff;box-sizing:border-box;padding:20rpx;}
+.case-wrap > .item{padding-bottom: 25rpx;}
+.case-wrap .item > image{display: block;width: 100%;height: auto;margin: 0 auto;}
+.case-row{display: flex;align-items: center;justify-content: space-between;box-sizing: border-box;padding: 0 20rpx;height: 100rpx;}
+.name{font-size: 30rpx;color: #272727;flex: 1;overflow: hidden;}
+.right{display: flex;align-items: center;color: #868686;font-size: 26rpx;}
+.right > image{display: block;width:32rpx;height: 32rpx;margin: 0 0 0 10rpx;}
+.right .iconfont{color: #AEAEAE;margin-right: 6rpx;}
+.right .icon-wujiaoxing2{font-size: 36rpx;}
+.right .icon-dianzan2{font-size: 42rpx;}
+.right .item{margin-left:20rpx;display:flex;align-items:center;} 

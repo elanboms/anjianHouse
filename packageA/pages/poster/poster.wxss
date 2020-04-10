@@ -1,0 +1,6 @@
+/* packageA/pages/poster/poster.wxss */
+page{background-color: #EFEFEF;padding-bottom: 25rpx;}
+.canvas{display: block;margin: 50rpx auto 45rpx;box-shadow: 0rpx 8rpx 15rpx 5rpx rgba(0,0,0,.12);border-bottom-left-radius: 15rpx;border-bottom-right-radius: 15rpx;}
+.change{margin: 0 8%;display: inline-block;font-size: 26rpx;color: #573B2D;}
+.save{width: 300rpx;height: 75rpx;box-sizing: border-box;line-height: 75rpx;background-color: #573B2D;color: #fff;font-size: 32rpx;text-align: center;border-radius: 50rpx;margin: 25rpx auto;}
+.tips{font-size: 28rpx;text-align: center;color: #888;}

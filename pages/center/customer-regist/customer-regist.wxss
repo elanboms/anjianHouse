@@ -1,0 +1,35 @@
+/* pages/center/customer-regist/customer-regist.wxss */
+
+.customer-tit {
+  width: 750rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  padding-left: 30rpx;
+  background: rgba(245, 245, 245, 1);
+}
+
+.customer-left, .customer-input, .customer-section {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.customer-left {
+}
+
+.customer-input {
+  text-align: end;
+}
+
+.customer-btn {
+  width: 690rpx;
+  height: 90rpx;
+  margin: 60rpx 0;
+  line-height: 90rpx;
+  text-align: center;
+  background: rgba(246, 51, 45, 1);
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}

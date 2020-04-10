@@ -1,0 +1,33 @@
+<view class='container'>
+  <view class='tipsContent' wx:if='{{!resultShow}}'>
+    <block wx:for='{{tips}}' wx:key='idx'>
+      <text id='{{item.id}}' data-text='{{item.title}}' catchtap='chooseTips'>{{item.title}}</text>
+    </block>
+  </view>
+
+  <view wx:if='{{resultShow}}'>
+    <view class='title'>
+      <text catchtap='resultHide'>{{chooseText}}</text>
+      <view catchtap='resultHide'>取消</view>
+    </view>
+    <view>
+      <block wx:for='{{customers}}' wx:key='idx'>
+      <view class='customers' id='{{item.user_id}}' catchtap='tocustomersDetail'>
+        <view class='customersDetail' id='{{item.id}}' catchtap='tocustomersDetail'>
+          <image class='customersImg' src='{{item.avatarUrl}}'></image>
+          <view class='customersInfo'>
+            <view class='customersName'>{{item.wechat_name}}</view>
+            <view class='customersCon'>{{item.log_time}}  {{item.log_txt}}</view>
+            <view class='customersSou'>{{item.source_text}}</view>
+            <view class='customersTips'>
+              <block wx:for='{{item.tips}}'>
+                <text>{{item.title}}</text>
+              </block>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    </view>
+  </view>
+</view>

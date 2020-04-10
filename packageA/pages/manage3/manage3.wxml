@@ -1,0 +1,25 @@
+<view class='container'>  
+  <view>
+    <block wx:for='{{list}}' wx:key='idx'>
+      <view class='list' id='{{item.uid}}' catchtap='tochats'>
+        <view class='listUnread' wx:if="{{item.wdnum>0}}">{{item.wdnum>99?"99":item.wdnum}}</view>
+        <image class='listImg' src='{{item.logo}}'></image>
+        <view class='listDetail'>
+          <view class='listName'>{{item.name}}</view>
+          <view class='listText'>{{item.text}}</view>
+        </view>
+        <view class='listTime'>{{item.time}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class='tabbar manageTabbar'>
+    <block wx:for='{{tabbar}}' wx:key='idx'>
+      <navigator open-type='redirect' hover-class='none' class='{{tabbarIndex == index?"active":""}}' url='{{item.url}}'>
+        <image src='{{tabbarIndex == index?item.imgSelect:item.img}}' class='tabbarImg'></image>
+        <text>{{item.text}}</text>
+        <view wx:if="{{index == 2 && hasUnRead}}"></view>
+      </navigator>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+<view class='container'>
+  <block wx:for='{{list}}' wx:key='idx'>
+    <view class='user' id='{{item.id}}' catchtap='zhuanjie'>
+      <image class='userImg' src='{{item.logo}}'></image>
+      <view class='userName'>{{item.cardname}}</view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,132 @@
+<!--pages/hot-activity-detail/hot-activity-detail.wxml-->
+
+<image mode="widthFix" class="activity-img" src="{{activity.activityDetail}}"></image>
+
+<view class="activity-root root">
+  <view class="activity-tit h2">{{activity.title}}</view>
+  <view class="activity-section flex font-28">
+    <view class="activity-section-left">活动日期:</view>
+    <view class="activity-section-right">{{activity.beiginTime}}-{{activity.endTime}}</view>
+  </view>
+
+  <view class="activity-section flex font-28">
+    <view class="activity-section-left">活动地址:</view>
+    <view class="activity-section-right">{{activity.location}}</view>
+    <image class="activity-section-img" catchtap="openMap" src="../../images/local@2x.png"></image>
+  </view>
+
+  <!-- 参与报名项目 -->
+  <view class="activity-tit-h2 h2">参与活动项目</view>
+  <view class="flex flex-wr font-24">
+    <block wx:for='{{activity.build}}' wx:key='{{activity.build.id}}'>
+      <view class="activity-card">{{item.title}}</view>
+    </block>
+  </view>
+
+
+  <form bindsubmit='getFormId' report-submit="true">
+    <!-- 活动报名 -->
+    <view class="activity-tit-h2 h2">活动报名</view>
+
+    <view class="flex-b font-30">
+      <view class="activ-tit">
+        <text>*</text>报名项目</view>
+      <view class="activity-righ flex" catchtap="selectActivity">
+        <input class="activ-input" value="{{selectType}}" disabled="true" placeholder="请选择"></input>
+        <image class="activ-more-img" src="../../images/title-more.png"></image>
+      </view>
+    </view>
+    <view class="hr-mag hr-2"></view>
+
+    <view class="flex-b font-30">
+      <view class="activ-tit">
+        <text>*</text>姓名</view>
+      <view class="flex">
+        <input class="activ-input" bindinput="nameInputTap" placeholder="请输入姓名"></input>
+      </view>
+    </view>
+    <view class="hr-mag hr-2"></view>
+
+    <view class="flex-b font-30">
+      <view class="activ-tit">
+        <text>*</text>手机号</view>
+      <view class="flex">
+        <input class="activ-input" bindinput="phoneInputTap" placeholder="请输入手机号"></input>
+      </view>
+    </view>
+    <view class="hr-mag hr-2"></view>
+    <!-- 报名提交 -->
+    <button id="sco" bindtap="activitySignTap" form-type="submit" class="activity-btn">提交</button>
+
+    <text class="activ-tip">免责声明：以上楼盘及活动信息仅供参考，最终以政府部门登记备案为准。本网显示的交通、商业、学校医疗等配套设施，不作为要约、销售承诺和合同附件，双方具体权利义务应以法律规定买卖合同约定为准。</text>
+  </form>
+</view>
+
+
+
+<!-- 底部分享区域 -->
+<view class="bottom-fixed flex {{bottomActive?'bottom-fixed active':''}}">
+  <button open-type="share" class="fixed-share-section flex-c">
+    <image class="fixed-share-img" src="../../images/share@2x.png"></image>
+    <view class="font-24">转发好友</view>
+  </button>
+
+  <button class="fixed-share-section flex-c" catchtap="sharePhotoTap">
+    <image class="fixed-share-img" src="../../images/photo-share@2x.png"></image>
+    <view class="font-24">海报分享</view>
+  </button>
+
+  <button catchtap="toview" class="fixed-btn-section" data-opt="sco">报名</button>
+</view>
+
+<!-- 选择楼盘弹窗 -->
+<view class="dia-area">
+  <view class="mengban" catchtouchmove="preventTouchMove" hidden="{{hiddenHouseType}}"></view>
+  <view class="dia-house-con root" catchtouchmove="preventTouchMove" style="{{hiddenHouseType?'':'transform: translateY(0);'}}">
+    <view class="dia-house-tit flex-b">
+      <view class="h2">选择楼盘</view>
+      <view class="font-26 gray" catchtap="resetHouseTap">重置</view>
+    </view>
+    <view class="dia-house-area flex flex-wr">
+      <block wx:for='{{activity.build}}' wx:for-index='idx' wx:key='{{activity.build.id}}'>
+        <view class="dia-house-section" data-id="{{id}}" data-idx="{{idx}}" catchtap='onChangeTap'>
+          <view style="{{idx == index?'background:rgba(246,51,45,0.08);color:#F6332D':'' }}" class="activity-card dia-house-card">{{item.title}}</view>
+          <image wx:if='{{ idx == index }}' class="activity-house-card-select" src="../../images/selected-true@2x.png"></image>
+        </view>
+      </block>
+    </view>
+
+    <!-- 弹窗按钮 -->
+    <view class="flex-b">
+      <button class="dia-btn-type" catchtap="cancelSelect">取消</button>
+      <button class="dia-btn-type" catchtap="confirmSelect">确认</button>
+    </view>
+  </view>
+
+</view>
+
+
+
+<!-- 海报分享弹窗 -->
+<view class="dia-area">
+  <view class="mengban" catchtouchmove="preventTouchMove" hidden="{{hiddenPhotoShare}}"></view>
+  <view class="dia-share-con root" catchtouchmove="preventTouchMove" style="{{hiddenPhotoShare?'':'transform: translateY(0);'}}">
+    <view class="dia-house-tit">
+      <view class="h2 center">分享海报</view>
+    </view>
+    <image class="close-photo" catchtap="closePhotoShare" src="../../images/close-b.png"></image>
+
+    <view class="dia-house-area center">
+
+      <!-- 海报 -->
+      <canvas hidden="{{hiddenPhotoShare}}" style="width: 400rpx;height: 626rpx;margin-left:145rpx;" canvas-id="mycanvas" />
+    </view>
+
+    <!-- 分享弹窗按钮 -->
+    <view class="flex-b">
+      <button open-type="share" class="dia-btn-type share-friend" catchtap="">转发好友</button>
+      <button class="dia-btn-type" catchtap="savePhoto">保存海报</button>
+    </view>
+  </view>
+
+</view>

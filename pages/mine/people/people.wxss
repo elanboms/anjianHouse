@@ -1,0 +1,66 @@
+/* pages/mine/people/people.wxss */
+
+page {
+  background: #f5f5f5;
+}
+
+.people-section {
+  width: 750rpx;
+  height: 140rpx;
+  margin-bottom: 15rpx;
+  box-sizing: border-box;
+  padding: 30rpx;
+  background: rgba(255, 255, 255, 1);
+}
+
+.user-img {
+  width: 88rpx;
+  height: 88rpx;
+  margin-right: 25rpx;
+  border-radius: 50%;
+}
+
+.people-name {
+  font-size: 30rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+}
+
+.people-sex {
+  width: 50rpx;
+  height: 32rpx;
+  margin-left: 35rpx;
+  padding: 0 3rpx;
+  text-align: center;
+  line-height: 32rpx;
+  background: rgba(246, 51, 45, 1);
+  border-radius: 16px;
+  font-size: 20rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.people-phone {
+  margin-top: 15rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(194, 194, 194, 1);
+}
+.people-right{
+  margin-top: 10rpx;
+}
+.hr0 {
+  width: 2rpx;
+  height: 60rpx;
+  margin-right: 50rpx;
+  background: rgba(229, 229, 229, 1);
+}
+
+.people-call {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+}

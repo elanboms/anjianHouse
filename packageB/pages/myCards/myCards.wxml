@@ -1,0 +1,42 @@
+<view class='box'> 
+  <!-- <view class='cardsContainer'> 
+    <block wx:for='{{cards}}'>
+      <view class='cardFrom'>{{item.source_text}}</view>
+      <view class='card' catchtap='tocard' data-id='{{item.card_id}}'>
+        <view class='cardInfo'>
+          <view class='user'>
+            <view class='userInfo'>
+              <view class='userName'>{{item.cardname}}</view>
+              <view class='userStatus'>-{{item.position}}-</view>
+            </view>
+            <view class='userCompany'>{{item.company}}</view>
+          </view>
+          <image class='userImg' src='{{item.logo}}'></image>
+          <view class='notesNum' wx:if="{{item.chat_num>0}}">{{item.chat_num}}</view>
+        </view>
+        <view class='cardCon'>
+          <view class='cardPhone' data-text='{{phone}}' catchtap='makePhoneCall'>TEL：{{item.phone}}</view>
+          <view class='cardNum' wx:if="{{show_ig==2}}">No.{{item.no}}</view>
+        </view>
+        <image class='cardMore' src='/images/more1.png'></image>
+      </view>
+    </block>
+  </view>
+  <view class='lookMine' wx:if="{{show_ig==2}}" catchtap='toindex'>返回名片</view>  -->
+
+  <block wx:for='{{cards}}'>
+    <view class="list-section" catchtap='tocard' data-id='{{item.card_id}}'>
+      <image class="list-section-img" src="{{item.logo}}" ></image>
+      <view class="list-section-name elli">{{item.cardname}}</view>
+      <view class="list-section-tag list-section-tag-1" data-phone='{{item.phone}}' catchtap='makePhoneCall'>
+        <image mode="widthFix" src="/images/mycard-logo-1.png"></image>
+        <view class="list-section-text">电话</view>
+      </view>
+      <view class="list-section-tag list-section-tag-2">
+        <image mode="widthFix" src="/images/mycard-logo-2.png"></image>
+        <view class="list-section-text">咨询</view>
+      </view>
+      <image class="tit-more" src="/images/title-more.png"></image>
+    </view>
+  </block>
+</view>

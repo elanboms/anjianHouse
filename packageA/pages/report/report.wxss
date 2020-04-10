@@ -1,0 +1,58 @@
+.head{
+  width: 690rpx;
+  margin: 0 auto;
+  padding: 30rpx 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.headTitle{
+  font-size: 30rpx;
+}
+.headTips{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.headTips view{
+  padding: 6rpx 20rpx;
+  font-size: 24rpx;
+  color: #333;
+  border: 1px solid transparent;
+}
+.headTips view.active{
+  color: #272B56;
+  border: 1px solid #272B56;
+  border-radius: 50rpx;
+}
+
+.headList{
+  width: 690rpx;
+  margin: 0 auto 20rpx;
+  background: #f8f8f8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.headList>view{
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 20rpx 10rpx;
+  color: #272B56;
+  font-size: 34rpx;
+}
+.headList view text{
+  color: #999;
+  font-size: 26rpx;
+}
+
+ec-canvas{
+  display: block;
+  width: 100%;
+  height: 600rpx;
+}

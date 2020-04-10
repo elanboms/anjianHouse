@@ -1,0 +1,9 @@
+/* packageA/pages/addMessages/addMessages.wxss */
+.addMessages-wrap{box-sizing: border-box;padding: 30rpx;}
+.textarea{background-color: #F6F6F6;border-radius: 10rpx;font-size: 31rpx;color: #5C5C5C;box-sizing: border-box;padding: 20rpx;display: block;width: calc(100vw - 60rpx);height: 360rpx;}
+.classify{display: flex;align-items: center;justify-content: space-between;font-size: 31rpx;padding: 25rpx 0;border-bottom: 1px solid #eee;margin: 20rpx auto 100rpx;}
+.classify text{flex: 1;overflow: hidden;display: block;}
+.classify text:nth-child(2){text-align: right;}
+.btn{height: 90rpx;box-sizing: border-box;line-height: 90rpx;font-size: 32rpx;margin-bottom: 20rpx;text-align: center;border-radius: 10rpx;}
+.save{color: #fff;background-color: #573B2D;}
+.back{color: #333;background-color: #EFEFF1;}

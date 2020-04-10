@@ -1,0 +1,14 @@
+<!--pages/mine/my-sign/my-sign.wxml-->
+<import src='../../template/activity-template.wxml' />
+
+
+<!-- 热门活动 -->
+<view class="activity root flex-c">
+
+  <view class="acti-area">
+    <block wx:for="{{activityList}}">
+      <template is='sign-template' data='{{...item}}'></template>
+    </block>
+  </view>
+
+</view>

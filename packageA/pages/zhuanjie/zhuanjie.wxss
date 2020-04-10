@@ -1,0 +1,21 @@
+.user{
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #dedede;
+}
+.userImg{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+}
+.userName{
+  width: calc(100% - 110rpx);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 32rpx;
+}

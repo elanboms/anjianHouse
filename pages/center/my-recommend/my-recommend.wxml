@@ -1,0 +1,37 @@
+<!--pages/center/my-recommend/my-recommend.wxml-->
+<!--pages/center/add-information/add-information.wxml-->
+<form bindsubmit="formSubmit" report-submit="true">
+  <view class="add-root">
+  
+    <view class="add-tit">意向推荐</view>
+    <view class="add-text">请填写客户真实信息，保证方便准确推荐给客户
+    </view>
+
+    <view class="input-tit">客户姓名</view>
+    <input class="input-con" name='name' placeholder="请填写客户姓名"></input>
+    <view class="hr-2"></view>
+
+    <view class="input-tit">联系电话</view>
+    <input class="input-con" name='phone' type="number" placeholder="请填写客户联系电话"></input>
+    <view class="hr-2"></view>
+
+
+     <view class="input-tit">推荐楼盘</view>
+     <picker bindchange="bindHouseChange" value="{{index}}" range="{{houseList}}" range-key="{{'title'}}">
+    <input class="input-con" name='house' type="number" value="{{houseList[index].title}}" disabled="true" placeholder="请选择推荐楼盘"></input>
+     </picker>
+    <view class="hr-2"></view>
+
+     <view class="input-tit">备注</view>
+    <input class="input-con" name='mark' type="number" placeholder="请填写备注信息"></input>
+    <view class="hr-2"></view>
+
+    <button class="add-btn" form-type="submit" bindtap="submit">马上推荐</button>
+
+  </view>
+</form>
+
+
+
+
+

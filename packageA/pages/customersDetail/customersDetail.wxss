@@ -1,0 +1,201 @@
+page{
+  background: #f5f5f5;
+}
+.title{
+  width: 100%;
+  height: 70rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #f5f5f5;
+}
+.title text{
+  background: #272B56;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 3rpx 15rpx;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+}
+
+.detail{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 30rpx;
+  background: #ffffff;
+}
+.user{
+  width: calc(100% - 240rpx);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.userImg{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.userInfo{
+  width: calc(100% - 140rpx);
+  height: 100rpx;
+  color: #999;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.userInfo view{
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detailBtn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220rpx;
+  margin-left: 20rpx;
+}
+.detailBtn view{
+  width: 100%;
+  line-height: 50rpx;
+  border-radius: 50rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+.detailBtn view:first-child{
+  background: #EB5B19;
+  border: 1px solid #EB5B19;
+  color: #fff;
+  margin-bottom: 20rpx;
+}
+.detailBtn view:last-child{
+  background: #ffffff;
+  border: 1px solid #c9c9c9;
+  color: #272B56;
+}
+
+.tips{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  font-size: 24rpx;
+  color: #272B56;
+  background: #ffffff;
+}
+.tips text{
+  background: #f1f1f1;
+  border: 1px solid #f1f1f1;
+  padding: 8rpx 20rpx;
+  margin-bottom: 20rpx;
+  margin-right: 20rpx;
+}
+.tips view{
+  background: #ffffff;
+  border: 1px solid #dedede;
+  padding: 8rpx 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.text{
+  font-size: 20rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx 20rpx;
+  color: #888;
+  background: #ffffff;
+}
+.text text{
+  color: #272B56;
+}
+
+.nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 100rpx;
+  background: #fff;
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+  font-size: 32rpx;
+}
+.nav view{
+  width: 150rpx;
+  height: 94rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-bottom: 6rpx solid transparent;
+}
+.nav view.active{
+  border-bottom: 6rpx solid #272B56;
+  color: #272B56;
+}
+
+.interactContainer{
+  box-sizing: border-box;
+  padding: 30rpx 50rpx;
+}
+.interact{
+  box-sizing: border-box;
+  padding-left: 40rpx;
+  padding-bottom: 20rpx;
+  border-left: 1px solid #272B56;
+  position: relative
+}
+.dots{
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  background: #272B56;
+  position: absolute;
+  top: 4rpx;
+  left: -14rpx;
+}
+.interactHead{
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.interactList view{
+  font-size: 26rpx;
+  color: #888;
+  margin-bottom: 10rpx;
+}
+
+.followContainer{
+  box-sizing: border-box;
+  padding: 30rpx 50rpx;
+}
+.follow{
+  box-sizing: border-box;
+  padding-left: 40rpx;
+  padding-bottom: 20rpx;
+  border-left: 1px solid #dedede;
+  position: relative
+}
+.followHead{
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.followText{
+  font-size: 26rpx;
+  color: #888;
+  margin-bottom: 10rpx;
+}
+
+ec-canvas{
+  display: block;
+  width: 100%;
+  height: 600rpx;
+}

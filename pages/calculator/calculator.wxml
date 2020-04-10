@@ -1,0 +1,157 @@
+<!--pages/calculator/calculator.wxml-->
+
+<view class="container">
+  <view class="nav">
+    <block wx:for="{{nav}}" wx:key="idx">
+      <view class='{{navIndex==index?"active":""}}' id="{{index}}" catchtap="chooseNavIndex">{{item}}</view>
+    </block>
+  </view>
+  <view class="cac-content main">
+    <!-- 商业贷款 -->
+    <view class="cac-list" wx:if="{{navIndex==0}}">
+      <view class="detail-content">
+        <text>商业贷款（万）</text>
+        <input placeholder="请输入商业贷款额" placeholder-style='color:#A8A8A8;font-size:30rpx' type="number" value="{{inputValue1}}" bindinput="loanMoney"></input>
+      </view>
+
+      <view class="detail-content">
+        <text>贷款年限（年）</text>
+        <input placeholder="请输入贷款年限" placeholder-style='color:#A8A8A8;font-size:30rpx' type="number" value="{{loanYears}}" bindinput="loanYears"></input>
+      </view>
+
+      <view class="detail-content">
+        <text>商贷利率（%）</text>
+        <input class="busnessNum  busnessNum-1" bindinput="inputValue3Tap" placeholder="3.5%" placeholder-style='color:#A8A8A8;font-size:30rpx' type="text" value="{{inputValue3}}"></input>
+        <picker bindchange="bindLoanListChange" value="{{loanListIdx}}" range="{{loanList}}" range-key="{{'name'}}">
+          <input class="busnessNum-type" placeholder="选择基本利率" placeholder-style='color:#A8A8A8;font-size:30rpx' type="text" disabled="true" value="{{loanList[loanListIdx].name}}"></input>
+          <view class="img-tap">
+            <image src="/images/jiantou-4.png"></image>
+          </view>
+        </picker>
+      </view>
+
+    </view>
+
+    <!-- 公积金贷款 -->
+
+    <view class="cac-list" wx:if="{{navIndex==1}}">
+      <view class="detail-content">
+        <text>公积金贷款（万）</text>
+        <input placeholder="请输入公积金贷款额" placeholder-style='color:#A8A8A8;font-size:30rpx' type="number" value="{{inputValue4}}" bindinput="loanMoney2"></input>
+      </view>
+      <view class="detail-content">
+        <text>贷款年限（年）</text>
+        <input placeholder="请选择贷款年限" placeholder-style='color:#A8A8A8;font-size:30rpx' type="number" value="{{loanYears}}" bindinput="loanYears"></input>
+
+      </view>
+      <view class="detail-content">
+        <text>公积金利率（%）</text>
+        <input class="busnessNum" bindinput="inputValue5Tap" placeholder="3.25%" placeholder-style='color:#A8A8A8;font-size:30rpx' type="text" value="{{inputValue5}}"></input>
+        <picker bindchange="bindLoanList2Change" value="{{loanList2Idx}}" range="{{loanList2}}" range-key="{{'name'}}">
+          <input class="busnessNum-type" placeholder="选择基本利率" placeholder-style='color:#A8A8A8;font-size:30rpx' type="text" disabled="true" value="{{loanList2[loanList2Idx].name}}"></input>
+          <view class="img-tap">
+            <image src="/images/jiantou-4.png"></image>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 组合贷款 -->
+    <view class="cac-list" wx:if="{{navIndex==2}}">
+      <view class="detail-content">
+        <text>商业贷款（万）</text>
+        <input placeholder="商业贷款额" placeholder-style='color:#A8A8A8;font-size:30rpx' type="number" value="{{inputValue1}}" bindinput="loanMoney"></input>
+      </view>
+      <view class="detail-content">
+        <text>公积金贷款（万）</text>
+        <input placeholder="公积金贷款额" placeholder-style='color:#A8A8A8;font-size:30rpx' type="number" value="{{inputValue4}}" bindinput="loanMoney2"></input>
+      </view>
+      <view class="detail-content">
+        <text>贷款年限（年）</text>
+        <input placeholder="请选择贷款年限" placeholder-style='color:#A8A8A8;font-size:30rpx' type="number" value="{{loanYears}}" bindinput="loanYears"></input>
+      </view>
+      <view class="detail-content">
+        <text>商贷利率（%）</text>
+        <input class="busnessNum busnessNum-1" bindinput="inputValue3Tap" placeholder="3.25%" placeholder-style='color:#A8A8A8;font-size:30rpx' type="text" value="{{inputValue3}}"></input>
+        <picker bindchange="bindLoanListChange" value="{{loanListIdx}}" range="{{loanList}}" range-key="{{'name'}}">
+          <input class="busnessNum-type" placeholder="选择基本利率" placeholder-style='color:#A8A8A8;font-size:30rpx' type="text" disabled="true" value="{{loanList[loanListIdx].name}}"></input>
+          <view class="img-tap">
+            <image src="/images/jiantou-4.png"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="detail-content">
+        <text>公积金利率（%）</text>
+        <input class="busnessNum" bindinput="inputValue5Tap" placeholder="3.25%" placeholder-style='color:#A8A8A8;font-size:30rpx' type="text" value="{{inputValue5}}"></input>
+        <picker bindchange="bindLoanList2Change" value="{{loanList2Idx}}" range="{{loanList2}}" range-key="{{'name'}}">
+          <input class="busnessNum-type" placeholder="选择基本利率" placeholder-style='color:#A8A8A8;font-size:30rpx' type="text" disabled="true" value="{{loanList2[loanList2Idx].name}}"></input>
+          <view class="img-tap">
+            <image src="/images/jiantou-4.png"></image>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+
+
+    <view class="detail-content repay">
+      <text>还款方式</text>
+      <view class="choose-type">
+        <block wx:for="{{repayment}}" wx:key="idx">
+          <view class='{{repayIndex==index?"active":""}}' catchtap='chooseRepayIndex' id="{{index}}">{{item}}</view>
+        </block>
+      </view>
+    </view>
+    <view class="submit" catchtap="cacNum">计算</view>
+  </view>
+  <view class="mengban" wx:if="{{isMengShow==true}}"></view>
+  <view class="choose-year" wx:if="{{isMengYear==true}}">
+    <view class="title">
+      <view>贷款年限</view>
+      <view class="cancel" catchtap="cancel">取消</view>
+    </view>
+    <view class="year-list main">
+      <block wx:for="{{yearList}}" wx:key="idx" for-index="index">
+        <view style='{{(index+1)%5==0?"margin-right:0":""}}' class='{{yearIndex==index?"active":""}}' id="{{index}}" catchtap="chooseYearIndex">{{item}}年</view>
+      </block>
+    </view>
+  </view>
+  <view class="loan" wx:if="{{isMengLoan==true&&(navIndex==0||navIndex==2)}}">
+    <view class="title">
+      <view>商贷利率</view>
+      <view class="cancel" catchtap="cancel">取消</view>
+    </view>
+    <view class="loan-list">
+      <block wx:for="{{loanList}}" wx:key="idx">
+        <view catchtap="chooseLoanIndex" class='{{loanIndex==index?"active":""}}' id="{{index}}">{{item.name}}</view>
+      </block>
+    </view>
+    <view class="custom-loan main">
+      <view class="choose-custom">
+        <text>自定义利率</text>
+        <input type="digit" value="{{customLoanValue}}" bindinput='chooseCustom' cursor-spacing='30'></input>
+        <text>%</text>
+      </view>
+      <view class="custom-sure" catchtap="customSure">确定</view>
+    </view>
+  </view>
+  <view class="loan loan2" wx:if="{{isMengLoan2==true&&(navIndex==1||navIndex==2)}}">
+    <view class="title">
+      <view>公积金利率</view>
+      <view class="cancel" catchtap="cancel">取消</view>
+    </view>
+    <view class="loan-list">
+      <block wx:for="{{loanList2}}" wx:key="idx">
+        <view catchtap="chooseLoanIndex2" class='{{loanIndex2==index?"active":""}}' id="{{index}}">{{item.name}}</view>
+      </block>
+    </view>
+    <view class="custom-loan main">
+      <view class="choose-custom">
+        <text>自定义利率</text>
+        <input type="digit" value="{{customLoanValue2}}" bindinput='chooseCustom2' cursor-spacing='30'></input>
+        <text>%</text>
+      </view>
+      <view class="custom-sure" catchtap="customSure2">确定</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+/* pages/house-form/house-form.wxss */
+@import "/pages/hot-activity-detail/hot-activity-detail.wxss";
+.activ-tip{display: flex;align-items: center;justify-content: center;}
+.activ-tip image{width: 40rpx;height: 40rpx;flex-shrink: 0;margin-right: 10rpx;}
+.activ-tip text{color: #f00;}

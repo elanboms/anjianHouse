@@ -1,0 +1,81 @@
+<!--pages/news/news.wxml-->
+<view>
+
+  <view class="root talk-root">
+
+    <block wx:for='{{list}}'>
+      <view class="talk-section">
+        <view class="flex-b talk-section-top align-center">
+          <view class="flex">
+            <image class='talk-img' src="{{item.logo}}"></image>
+            <view class="talk-name">{{item.username}}</view>
+          </view>
+          <button open-type="share" class="talk-time font-30">
+            <image class="share-icon" src="/images/share-icon.png"></image>
+          </button>
+        </view>
+
+        <!-- 评论内容 -->
+        <view wx:if='{{item.contenttype==1}}' class="talk-text">{{item.content}}</view>
+
+        <!-- 评论图 -->
+        <view  wx:if='{{item.contenttype==1&&item.thumbs.length!=0}}' class="flex photo-list">
+          <block wx:for='{{item.thumbs}}' wx:for-item='itm'>
+            <image hidden="{{!itm}}" class="photo-list-img" src="{{itm}}"></image>
+          </block>
+        </view>
+
+        <!-- 新闻 -->
+        <view wx:if='{{item.contenttype==2}}' data-newsid="{{item.newsid}}" data-id="{{item.id}}" class="flex-s news-area" catchtap="lookNewsTap">
+          <image class="news-area-img" src="{{item.picurl}}"></image>
+          <view class="news-area-con elli-2">{{item.title}}</view>
+        </view>
+
+        <!-- 时间 -->
+        <view class="time-area flex-b align-center">
+          <view class="talk-time font-30">{{item.addtime}}</view>
+          <image class="talk-icon" src='/images/talk-icon.png' id='{{item.id}}' catchtap="talkBtnTap"></image>
+          <!-- 点赞&评论操作 -->
+          <view hidden="{{item.isHidden}}"  class="talk-btn animation" >
+            <view wx:if='{{!item.isZan}}' data-id="{{item.id}}" catchtap="zanTap">赞({{item.zan}})</view>
+            <view wx:else data-id="{{item.id}}" catchtap="zanTap">取消</view>
+            <view data-id="{{item.id}}" catchtap="talkTap">评论({{item.cmtnum}})</view>
+          </view>
+        </view>
+
+        <!-- 点赞&评论区域 -->
+        <view class="zan-box">
+          <!-- 点赞列表 -->
+          <view hidden="{{item.zanList.length==0}}" class="flex-s zan-area">
+            <image class="zan-icon" src="/images/zan-icon.png"></image>
+            <block wx:for='{{item.zanList}}' wx:for-item='zanItem' wx:for-index='idx'>
+              <view class="zan-name">{{zanItem.username}}{{(idx==item.zanList.length-1)?'':','}}</view>
+            </block>
+          </view>
+          <view  hidden="{{item.zanList.length==0||item.commentList.length==0}}" class="hr-2"></view>
+          <!-- 评论列表 -->
+          <view hidden='{{item.commentList.length==0}}' class="talk-area flex-c">
+            <block wx:for='{{item.commentList}}' wx:for-item='comItem'>
+              <view class="flex-s talk-area-section">
+                <view class="talk-area-name">{{comItem.username}}：</view>
+                <view class="talk-area-con">{{comItem.content}}</view>
+              </view>
+            </block>
+          </view>
+
+        </view>
+
+      </view>
+
+      <view class="hr-2" style="margin-top:40rpx;"></view>
+    </block>
+
+  </view>
+
+
+
+
+
+
+
+</view>

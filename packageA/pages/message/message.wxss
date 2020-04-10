@@ -1,0 +1,9 @@
+/* packageA/pages/message/message.wxss */
+page{background-color: #fff;}
+.addMessages{line-height: 90rpx;font-size: 31rpx;color: #573B2D;text-align: center;box-sizing: border-box;border-bottom: 1px solid #eee;}
+.message_wrap{display: flex;justify-content: space-between;}
+.left{width: 240rpx;background-color: #F5F5F7;height: calc(100vh - 92rpx);}
+.right{flex: 1;overflow: hidden;height: calc(100vh - 92rpx);box-sizing: border-box;padding: 0 25rpx;}
+.left .item{text-align: center;line-height: 85rpx;font-size: 31rpx;color: #333;}
+.left .active{background-color: #fff;color: #573B2D !important;}
+.right .info-item{border-bottom: 1px solid #eee;padding: 22rpx 0;font-size: 31rpx;color: #333;}

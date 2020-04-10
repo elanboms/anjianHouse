@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "BOSS雷达",
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
+}

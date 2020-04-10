@@ -1,0 +1,56 @@
+<view class='container'>  
+  <view class='head'> 
+    <block wx:for="{{canArr}}" wx:key='idx'>
+      <view class='headContent' catchtap="tonav" data-path="{{item.path}}">
+        <view class='headCon'>
+          <!-- <canvas class='canvas1' canvas-id="canvas{{index*3 + 1}}"></canvas>
+          <canvas class='canvas2' canvas-id="canvas{{index*3 + 2}}"></canvas>
+          <canvas class='canvas2' canvas-id="canvas{{index*3 + 3}}"></canvas>
+          <cover-view class='headInfo'>{{item.num}}</cover-view> -->
+          {{item.num}}
+        </view>
+
+        <text>{{item.text}}</text>
+      </view>
+    </block> 
+  </view>
+
+  <view>
+    <view class='title'>
+      <view>近期新增客户</view>
+    </view>
+    <view class='customersList'>
+      <block wx:for='{{customers}}' wx:key='idx'>
+        <view class='customers'>
+          <view class='customersTime'>{{item.time}}</view>
+          <view class='customersDots'></view>
+          <view class='customersDetail'>
+            <block wx:for='{{item.list}}' wx:key='idx' wx:for-item='it' wx:for-index='index1'>
+              <view  class='customersContent' id='{{it.id}}' catchtap='tocustomersDetail'>
+                <image class='customersImg' src='{{it.logo}}'></image>
+                <view class='customersCon'>
+                  <view class='customersName'>{{it.wechat_name}}</view>
+                  <view class='customersInfo'>来源：{{it.source_text}}</view>
+                </view>
+                <span class='iconfont icon-xiaoxi1' id='{{it.id}}' catchtap='tochats'></span>
+              </view>
+            </block>
+          </view>
+          
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+
+  <view class='tabbar manageTabbar'>
+    <block wx:for='{{tabbar}}' wx:key='idx'>
+      <navigator open-type='redirect' hover-class='none' class='{{tabbarIndex == index?"active":""}}' url='{{item.url}}'>
+        <image src='{{tabbarIndex == index?item.imgSelect:item.img}}' class='tabbarImg'></image>
+        <text>{{item.text}}</text>
+         <view wx:if="{{index == 2 && hasUnRead}}"></view>
+      </navigator>
+    </block>
+  </view>
+</view>

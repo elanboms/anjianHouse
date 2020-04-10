@@ -1,0 +1,11 @@
+<!--pages/house-detail/album/album.wxml-->
+<view class="root flex flex-wr">
+  <block wx:for='{{albumList}}'>
+    <view class="h2 album-title">{{item.name}}</view>
+    <view class="flex flex-wr">
+      <block wx:for='{{item.picurl}}'>
+        <image class="album-img" src='{{item}}' data-img-url="{{item}}" catchtap="previewImage"></image>
+      </block>
+    </view>
+  </block>
+</view>

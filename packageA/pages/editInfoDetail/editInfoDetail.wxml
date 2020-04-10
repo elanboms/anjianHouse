@@ -1,0 +1,88 @@
+<view class='container'>  
+  <form bindsubmit='formSubmit'>
+    <view class='section'>
+      <text class='title'>姓名</text>
+      <input type='text' name='name' placeholder='请输入' value="{{user.cardname}}"></input>
+    </view>
+    <view class='section'>
+      <text class='title'>手机号</text>
+      <input type='number' name='phone' placeholder='请输入' value="{{user.phone}}"></input>
+    </view>
+    <view class='section marginBtn'>
+      <text class='title'>职位</text>
+      <input type='text' name='status' placeholder='请输入' value="{{user.position}}"></input>
+    </view>
+    <view class='section'>
+      <text class='title'>微信</text>
+      <input type='text' name='wechat' placeholder='请输入' value="{{user.weixin}}"></input>
+    </view>
+    <view class='section'>
+      <text class='title'>座机</text>
+      <input type='number' name='tel' placeholder='请输入' value="{{user.mobile}}"></input>
+    </view>
+    <view class='section'>
+      <text class='title'>邮箱</text>
+      <input type='text' name='email' placeholder='请输入' value="{{user.email}}"></input>
+    </view>
+    
+    <!-- <view class='section'>
+      <text class='title'>选择地区</text>
+      <picker mode="region" bindchange="bindRegionChange">
+        <input name='location' value='{{region[0]}},{{region[1]}},{{region[2]}}' disabled='true' wx:if='{{region}}'></input>
+        <input placeholder='请选择' disabled='true' wx:else></input>
+      </picker>
+    </view>
+    <view class='section'>
+      <text class='title'>详细地址</text>
+      <input type='text' name='address' placeholder='请输入' value='{{user.manager.address}}'></input>
+    </view> -->
+    <view class='section' hidden="{{addTagModel}}">
+      <text class='title'>自我介绍</text>
+      <textarea type='text' name='detail' placeholder='请输入' value='{{user.detail}}'></textarea>
+    </view>
+    <view class='section' hidden="{{addTagModel}}">
+      <text class='title'>语音介绍</text>
+      <textarea type='text' name='audiourl' placeholder='请输入音频链接' value='{{user.audiourl}}'></textarea>
+    </view>
+    <view class='row-wrap'>
+      <view class='row-tit'>
+        <text class='tit-info'>我的标签</text>
+        <text class='num'>{{user.tagslist.length}}/10</text>
+      </view>
+      <view class='row-info'>
+        <block wx:for="{{user.tagslist}}" wx:key='tagArr'>
+          <view class='tag-item'>{{item.title}}<text wx:if="{{item.num > 0}}">({{item.num}})</text><span class='iconfont icon-cuowu' id="{{index}}" data-id="{{item.id}}" bindtap="delTagHandle"></span></view>
+        </block>
+      </view>
+      <view class='addTag' wx:if="{{user.tagslist.length < 10}}" bindtap='showAddTag'><span class='iconfont icon-tianjia' ></span></view>
+    </view>
+    <view class='row-wrap'>
+      <view class='row-tit'>
+        <text class='tit-info'>我的照片</text>
+        <text class='num'>{{user.thumb.length}}/9</text>
+      </view>
+      <view class='row-photo'>
+        <block wx:for="{{user.thumb}}" wx:key='uploadImgArr'>
+          <view class='item-photo'><image src="{{item}}"></image><span class='iconfont icon-cuowu' id="{{index}}" bindtap="delPhotoHandle"></span></view>
+        </block>
+        <view wx:if="{{user.thumb.length<9}}" class='item-photo noBorder' bindtap='uploadImg'><span class='iconfont icon-tianjia'></span>
+        </view>
+      </view>
+    </view>
+
+    <button class='submit' form-type='submit'>保存</button>
+  </form>
+</view>
+
+<!-- 添加标签 -->
+<view class='addtag-wrap' wx:if="{{addTagModel}}">
+  <view class='addbg'></view>
+  <view class='addtag-info'>
+    <view class='tit'>添加标签</view>
+    <input placeholder="请输入自定义标签" placeholder-class='placeholder' bindinput='inputHandle' />
+    <view class='tagui'>
+      <text class='item' bindtap='cancelTag'>取消</text>
+      <text class='item' bindtap='saveTag'>确定</text>
+    </view>
+  </view>
+</view>

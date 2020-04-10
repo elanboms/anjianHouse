@@ -1,0 +1,23 @@
+/* pages/news/news-submit/news-submit.wxss */
+page{
+  background: #f5f5f5;
+}
+.textarea{
+  background: white;
+  width: 750rpx;
+  height: 320rpx;
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+.btn{
+  background: #1aad19;
+  border-radius: 10rpx;
+  width: 690rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: white;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}

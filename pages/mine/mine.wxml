@@ -1,0 +1,105 @@
+<!--pages/mine/mine.wxml-->
+<form>
+
+  <view class="mine-top">
+    <image class="position-img" src="{{positionimg}}"></image>
+    <view class="mine-top-con flex-s">
+      <image class="user-img" src="{{user.avatarUrl}}"></image>
+      <view class="mine-top-con-right">
+        <view class="user-name">{{user.nickName}}</view>
+        <view class="user-phone">{{user.telphone}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="mine-root root">
+
+    <image class="adver-img" src="{{adverimg}}"></image>
+
+    <view class="mine-section flex-b" data-idx="1" catchtap="click">
+      <view class="flex-s">
+        <image class="mine-icon" src="../../images/my-reserve@2x.png"></image>
+        <view class="mine-text">我的预约</view>
+      </view>
+      <image class="more-img" src="../../images/title-more.png"></image>
+    </view>
+    <view class="hr-2"></view>
+
+    <view class="mine-section flex-b" data-idx="7" catchtap="click">
+      <view class="flex-s">
+        <image class="mine-icon" src="../../images/my-order@2x.png"></image>
+        <view class="mine-text">我的预订</view>
+      </view>
+      <image class="more-img" src="../../images/title-more.png"></image>
+    </view>
+    <view class="hr-2"></view>
+
+
+    <view class="mine-section flex-b" data-idx="2" catchtap="click">
+      <view class="flex-s">
+        <image class="mine-icon" src="../../images/my-share@2x.png"></image>
+        <view class="mine-text">我的分享</view>
+      </view>
+      <image class="more-img" src="../../images/title-more.png"></image>
+    </view>
+    <view class="hr-2"></view>
+
+    <view class="mine-section flex-b" data-idx="3" catchtap="click">
+      <view class="flex-s">
+        <image class="mine-icon" src="../../images/my-collect@2x.png"></image>
+        <view class="mine-text">我的收藏</view>
+      </view>
+      <image class="more-img" src="../../images/title-more.png"></image>
+    </view>
+    <view class="hr-2"></view>
+
+    <view class="mine-section flex-b" data-idx="4" catchtap="click">
+      <view class="flex-s">
+        <image class="mine-icon" src="../../images/my-sign@2x.png"></image>
+        <view class="mine-text">我的报名</view>
+      </view>
+      <image class="more-img" src="../../images/title-more.png"></image>
+    </view>
+
+
+  </view>
+
+  <!-- 分割线 -->
+  <view class="hr-15"></view> 
+  
+  <view class="mine-root root">
+
+    <!-- <view class="mine-section flex-b" data-idx="5" catchtap="click">
+      <view class="flex-s">
+        <image class="mine-icon" src="../../images/people@2x.png"></image>
+        <view class="mine-text">置业顾问</view>
+      </view>
+      <image class="more-img" src="../../images/title-more.png"></image>
+    </view>
+    <view class="hr-2"></view> -->
+
+    <view wx:if="{{user.cardid>0}}">
+      <view class="mine-section flex-b" data-idx="6" catchtap="click">
+        <view class="flex-s">
+          <image class="mine-icon" src="../../images/people@2x.png"></image>
+          <view class="mine-text">我的名片</view>
+        </view>
+        <image class="more-img" src="../../images/title-more.png"></image>
+      </view>
+      <view class="hr-2"></view>
+    </view>
+
+     <view class="mine-section flex-b" catchtap="callTap" >
+      <view class="flex-s">
+        <image class="mine-icon" src="../../images/contact@2x.png"></image>
+        <view class="mine-text">联系客服</view>
+      </view>
+      <view>{{phoneNum}}</view>
+    </view>
+
+
+  </view>
+
+
+
+</form>

@@ -1,0 +1,60 @@
+<!--pages/house-form/house-form.wxml-->
+  <view class="root">
+  <form bindsubmit='submitTap' report-submit="true">
+    <!-- 活动报名 -->
+    <view class="activity-tit-h2 h2">房源预定</view>
+
+    <view class="flex-b font-30">
+      <view class="activ-tit">
+        <text>*</text>户型选择</view>
+      <picker class="activity-righ flex" bindchange="selectTap" value="{{typeIdx}}" range="{{types}}" range-key="name">
+        <view class="flex">
+        <input class="activ-input" value="{{types[typeIdx].name}}" disabled="true" placeholder="请选择"></input>
+        <image class="activ-more-img" src="../../images/title-more.png"></image>
+        </view>
+      </picker>
+    </view>
+    <view class="hr-mag hr-2"></view>
+
+    <view class="flex-b font-30">
+      <view class="activ-tit">
+        <text>*</text>姓名</view>
+      <view class="flex">
+        <input name='name' class="activ-input"  placeholder="请输入姓名"></input>
+      </view>
+    </view>
+    <view class="hr-mag hr-2"></view>
+
+    <view class="flex-b font-30">
+      <view class="activ-tit">
+        <text>*</text>手机号</view>
+      <view class="flex">
+        <input name='phone' class="activ-input" type="number"  placeholder="请输入手机号"></input>
+      </view>
+    </view>
+    <view class="hr-mag hr-2"></view>
+    <view class="flex-b font-30">
+      <view class="activ-tit">
+        <text>*</text>身份证号</view>
+      <view class="flex">
+        <input name='idcard' type="idcard" class="activ-input"  placeholder="请输入身份证号"></input>
+      </view>
+    </view>
+    <view class="hr-mag hr-2"></view>
+    <view class="flex-b font-30">
+      <view class="activ-tit">
+        <text>*</text>金额(元)</view>
+      <view class="flex">
+        <input class="activ-input" name='money' disabled="true" type="digit" value="{{deposit}}"></input>
+      </view>
+    </view>
+    <view class="hr-mag hr-2"></view>
+    <!-- 提交 -->
+    <button id="sco" form-type="submit" class="activity-btn">立即支付</button>
+
+    <view class="activ-tip">
+      <image src="{{tipsSrc}}" catchtap="agreeTips"></image>
+      <view>已阅读并同意 <text catchtap="openTips">《安建翰林天筑》</text>协议</view>
+    </view>
+  </form>
+  </view>

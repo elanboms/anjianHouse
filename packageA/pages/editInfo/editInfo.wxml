@@ -1,0 +1,41 @@
+<view class='container'>
+  <view class='section' catchtap='chooseImg'>
+    <text>头像</text>
+    <view>
+      <image src='{{headImg}}' wx:if='{{headImg}}'></image>
+      <image src='{{logo}}' wx:else></image>
+      <span class='iconfont icon-xiangyoujiantou'></span>
+    </view>
+  </view>
+  <!-- <view class='section' data-url='' catchtap='topath'>
+    <text>名片风格选择</text>
+    <view>
+      <span class='iconfont icon-xiangyoujiantou'></span>
+    </view>
+  </view> -->
+  <view class='section marginBtm' data-url='/packageA/pages/editInfoDetail/editInfoDetail' catchtap='topath'>
+    <text>名片信息</text>
+    <view>
+      <span class='iconfont icon-xiangyoujiantou'></span>
+    </view>
+  </view>
+  <!-- <view class='section' data-url='' catchtap='topath'>
+    <text>分享设置</text>
+    <view>
+      <span class='iconfont icon-xiangyoujiantou'></span>
+    </view>
+  </view> -->
+  <!-- <view class='section marginBtm' data-url='' catchtap='topath'>
+    <text>聊天欢迎语设置</text>
+    <view>
+      <span class='iconfont icon-xiangyoujiantou'></span>
+    </view>
+  </view> -->
+  <view class='section marginBtm' data-url='/packageA/pages/editTips/editTips' catchtap='topath'>
+    <text>客户标签</text>
+    <view>
+      <span class='iconfont icon-xiangyoujiantou'></span>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,122 @@
+.container{
+  padding-bottom: 50px;
+}
+
+.search{
+  box-sizing: border-box;
+  padding: 20rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.search input{
+  min-width: calc(100% - 120rpx);
+  height: 70rpx;
+  background: #f5f5f5;
+  border-radius: 10rpx;
+  text-align: center;
+}
+.search button{
+  width: 100rpx;
+  line-height: 70rpx;
+  background: #272B56;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 31rpx;
+  margin-left: 20rpx;
+}
+.navi{
+  box-sizing: border-box;
+  padding: 30rpx;
+  background: #fff;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 32rpx;
+}
+.navi image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.title{
+  width: 100%;
+  line-height: 95rpx;
+  background: #f5f5f5;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  font-size: 31rpx;
+  color: #666;
+}
+
+.customers{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 30rpx;
+  border-bottom: 1px solid #dedede;
+}
+.customersDetail{
+  width: calc(100% - 90rpx);
+  display: flex;
+  flex-direction: row;
+}
+.customersImg{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 6rpx;
+  margin-right: 30rpx;
+}
+.customersInfo{
+  width: calc(100% - 110rpx);
+  line-height: 35rpx;
+}
+.customersName{
+  width: 100%;
+  font-size: 32rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  margin: -4rpx 0 6rpx;
+}
+.customersCon{
+  width: 100%;
+  font-size: 26rpx;
+  color: #A8A8A8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+.customersSou{
+  width: 100%;
+  font-size: 26rpx;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+.customersTips{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 24rpx;
+}
+.customersTips text{
+  color: #272B56;
+  padding: 0 10rpx;
+  border: 1px solid #272B56;
+  border-radius: 5rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+}
+.customersChats{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 30rpx;
+}
+.icon-xiaoxi1{font-size: 40rpx;color: #222;}

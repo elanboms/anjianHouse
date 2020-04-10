@@ -1,0 +1,70 @@
+<view class='container'  wx:if="{{showContainer}}">
+  <view class='nav'>
+    <block wx:for='{{nav}}' wx:key='idx'>
+      <view class='{{navIndex == index?"active":""}}' data-index='{{index}}' catchtap='navChoose'>
+        {{item}}
+      </view>
+    </block>
+  </view>
+
+  <view wx:if='{{navIndex == 0}}'>
+    <!-- 信息总览 -->
+    <view class='head'>
+      <view class='headTitle'>雷达统计数据</view>
+      <view class='headTips'>
+        <block wx:for='{{time}}' wx:key='idx'>
+          <view class='{{timeIndex == index?"active":""}}' data-index='{{index}}' bindtap='timeChoose'>
+            {{item}}
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='headList'>
+      <block wx:for='{{list1}}' wx:key='idx'>
+        <view>
+          <text>{{item.text}}</text>
+          <view>{{item.num}}</view>
+        </view>
+      </block>
+    </view>
+    <view class='headList'>
+      <block wx:for='{{list2}}' wx:key='idx'>
+        <view>
+          <text>{{item.text}}</text>
+          <view>{{item.num}}</view>
+        </view>
+      </block>
+    </view>
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ecPie }}" bind:init="pieInit"></ec-canvas>
+    <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ecLine }}" bind:init="lineInit"></ec-canvas>
+    <!-- <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ecBar1 }}" bind:init="barInit1"></ec-canvas> -->
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ecBar2 }}" bind:init="barInit2"></ec-canvas>
+  </view>
+
+  <view wx:if='{{navIndex == 1}}'>
+    <!--销售排行和-->
+    <view class='head'>
+      <view class='headTitle'>客户总数</view>
+      <view class='headTips'>
+        <block wx:for='{{time}}' wx:key='idx'>
+          <view class='{{timeIndex == index?"active":""}}' data-index='{{index}}' bindtap='timeChoose'>
+            {{item}}
+          </view>
+        </block>
+      </view>
+    </view>
+    <view>
+      <block wx:for='{{list}}'>
+        <view class='list'>
+          <view class='listDetail'>
+            <view class='listIndex'>{{index+1}}</view>
+            <image class='listImg' src='{{item.logo}}'></image>
+            <view class='listName'>{{item.username}}</view>
+          </view>
+          <view class='listNum'>{{item.num}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+</view>

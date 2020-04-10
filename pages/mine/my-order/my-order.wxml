@@ -1,0 +1,25 @@
+<!--pages/mine/my-order/my-order.wxml-->
+<block wx:for='{{reserveList}}' wx:key=''>
+  <view class="reserve-section root flex-c" data-id="{{item.lp_id}}" catchtap="openHouseDetail">
+    <view class="reserve-top flex-s">
+      <image class="reserve-img" src="{{item.image_lp}}"></image>
+      <view class="reserve-right flex-c">
+        <view class="h2">{{item.title}}</view>
+        <view class="reserve-price">约
+          <text class="reserve-price-num">{{item.saleCost}}</text> </view>
+        <view class="reserve-address elli">{{item.location}}</view>
+      </view>
+    </view>
+    <view class="hr-2"></view>
+    <view class="reserve-info flex-b">
+      <view class="reserve-time">预订时间：<text class="reserve-status"> {{item.create_time}}</text></view>
+      <!-- <view class="reserve-status">预约金额:{{item.money}}元</view> -->
+    </view>
+    <view class="reserve-info" style="line-height:1;height:55rpx;">
+      <view>预订姓名：<text class="reserve-status"> {{item.name}}</text></view>
+    </view>
+    <view class="reserve-info" style="line-height:1;height:55rpx;">
+      <view class="">预订金额： <text class="reserve-status">{{item.money||'0'}}元</text> </view>
+    </view>
+  </view>
+</block>

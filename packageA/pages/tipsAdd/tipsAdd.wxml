@@ -1,0 +1,19 @@
+<view class='container'>
+  <view class='title'>全部</view>
+  <view class='tipsContent'>
+    <block wx:for='{{tips}}' wx:key='idx'>
+      <text id='{{item.id}}' class='{{item.checked?"active":""}}' data-index='{{index}}' catchtap='chooseTips'>{{item.title}}</text>
+    </block>
+  </view>
+  <view class='title'>新增</view>
+  <view class='tipsContent'>
+    <text catchtap='addTips'>自定义</text>
+  </view>
+  
+  <view class='mask' wx:if='{{maskShow}}' catchtap='maskHide'></view>
+  <form class='myform' bindsubmit='formSubmit' wx:if='{{formShow}}'>
+    <view>请添加自定义标签</view>
+    <input type='text' name='tags' ></input>
+    <button form-type='submit'>确认添加</button>
+  </form>
+</view>

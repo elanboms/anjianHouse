@@ -1,0 +1,31 @@
+<!--pages/center/recommend-list/recommend-list.wxml-->
+
+<view class="root">
+
+  <block wx:for='{{customerList}}' wx:key=''>
+
+    <view class="cust-section" data-id="{{item.id}}" catchtap="">
+      <view class="flex-s">
+
+        <view class="flex-c">
+          <view class="flex">
+            <view class="cust-name">{{item.name}}</view>
+          </view>
+          <view class="cust-phone gray">联系电话：{{item.mobile}}</view>
+        </view>
+      </view>
+      <view class="hr-mag hr-2"></view>
+      <view class="gray">楼盘：{{item.build_name}}</view>
+      <view class="cust-time gray">时间：{{item.addtime}}</view>
+      <view class="cust-time gray">备注：{{item.bz}}</view>
+
+      <image data-phone="{{item.mobile}}" catchtap="callTap" class="position-call" src="../../../images/phone-call@2x.png"></image>
+
+    </view>
+
+  </block>
+
+
+
+
+</view>

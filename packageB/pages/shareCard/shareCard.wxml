@@ -1,0 +1,5 @@
+<view class='container'> 
+  <canvas canvas-id='card' class='card' style='width：{{ctxWidth}}px;height:{{ctxHeight}}px;'></canvas>
+  <view class="tips">保存图片发送给朋友或朋友圈~</view>
+  <cover-view class='download' catchtap='downloadImg'>保存名片海报</cover-view>
+</view>

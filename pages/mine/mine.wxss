@@ -1,0 +1,92 @@
+/* pages/mine/mine.wxss */
+
+page {
+  background: #f5f5f5;
+}
+
+.mine-top {
+  position: relative;
+  width: 750rpx;
+  height: 250rpx;
+}
+
+.position-img {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  width: 750rpx;
+  height: 250rpx;
+}
+
+.mine-top-con {
+  z-index: 2;
+  position: absolute;
+  top: 60rpx;
+  left: 30rpx;
+}
+
+.user-img {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+
+.mine-top-con-right {
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+}
+
+.user-name {
+  font-size: 40rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}
+
+.user-phone {
+  margin-top: 15rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.mine-root {
+  background: #fff;
+}
+
+.adver-img {
+  padding-top: 40rpx;
+  margin-bottom: 20rpx;
+  width: 690rpx;
+  height: 130rpx;
+}
+
+.mine-section {
+  height: 115rpx;
+  line-height: 115rpx;
+}
+
+.mine-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 38rpx;
+  margin-right: 36rpx;
+}
+
+.mine-text {
+  font-size: 32rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(34, 34, 34, 1);
+}
+
+.more-img {
+  width: 14rpx;
+  height: 24rpx;
+  margin-top: 46rpx;
+}
+.hr-15{
+  width: 750rpx;
+  height: 15rpx;
+}

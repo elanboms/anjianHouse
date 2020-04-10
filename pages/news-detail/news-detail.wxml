@@ -1,0 +1,11 @@
+<!--pages/news-detail/news-detail.wxml-->
+
+<import src='../../wxParse/wxParse.wxml' />
+
+
+<view class="rule-root">
+  <view class="h2">{{title}}</view>
+  <view class="gray font-26">{{date}}</view>
+ <template is='wxParse' data='{{wxParseData:text.nodes}}'></template>
+
+</view>

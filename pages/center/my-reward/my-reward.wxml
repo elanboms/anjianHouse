@@ -1,0 +1,59 @@
+<!--pages/center/my-reward/my-reward.wxml-->
+<view class="position-top">
+
+  <image class="position-bg" src="{{positionbg}}"></image>
+  <view class="reward-top">
+    <view class="reward-sum-price center">￥{{user.commission}}</view>
+    <view class="reward-top-text center">总奖励金额</view>
+  </view>
+
+  <view class="reward-top-bottom flex">
+    <view class="reward-top-con">
+      <view class="font-30">￥{{user.drawcommission}}</view>
+      <view class="font-24">已结算奖励</view>
+    </view>
+    <view class="reward-top-con">
+      <view class="font-30">￥{{user.waitcommission}}</view>
+      <view class="font-24">未结算奖励</view>
+    </view>
+  </view>
+
+  <view class="hr-9"></view>
+</view>
+
+<view class="reward-type flex">
+  <view class="reward-area" style="color:{{rewardType==1?'#F6332D':''}}" data-idx="1" catchtap="selectRewardTap">
+    已结算
+    <view hidden="{{rewardType!=1}}" class="reward-active"></view>
+  </view>
+  <view class="reward-area" style="color:{{rewardType==2?'#F6332D':''}}" data-idx="2" catchtap="selectRewardTap">
+    未结算
+    <view hidden="{{rewardType!=2}}" class="reward-active"></view>
+  </view>
+</view>
+
+<view>
+  <block wx:for='{{rewardList}}' wx:key=''>
+
+    <view class="reward-section">
+      <view class="reward-con flex-b">
+        <view class="font-30"> {{item.addtime}}</view>
+        <view class="reward-price">+￥{{item.prize}}</view>
+      </view>
+      <view class="hr-2"></view>
+
+      <view class="reward-text flex-b font-28">
+        <view class="flex-c">
+          <view>状态: <text class="reward-status">{{item.status=='0'?'未结算':'已结算'}}</text> </view>
+          <view>房源：{{item.deal_house}}</view>
+        </view>
+        <view class="flex-c">
+          <view class="">购买价格：{{item.deal_price}}</view>
+          <view>客户：{{item.deal_client}}</view>
+        </view>
+      </view>
+
+    </view>
+
+  </block>
+</view>

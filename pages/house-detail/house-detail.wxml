@@ -1,0 +1,154 @@
+<!--pages/house-detail/house-detail.wxml-->
+
+<swiper class="swiper-contain">
+  <block wx:for='{{build.img}}' wx:key='{{build.id}}'>
+    <swiper-item>
+      <image class="banner-img" src="{{item}}"></image>
+      <view class="banner-num">共{{build.img.length}}张</view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="root" style="{{album.length==0?'margin-bottom:150rpx;':''}}">
+
+  <view class="houseDetail-top flex-b">
+    <view class="h1 elli" style="width:450rpx;">{{build.title}}</view>
+    <view class="ar flex" catchtap="openVR">
+      <image src="../../images/ar.png"></image>
+      <view>全景观房</view>
+    </view>
+    <view class="flex-c" catchtap="storeTap">
+      <image class="collect-img" src="{{isCollect==1?'../../images/collect-true@2x.png':'../../images/collect@2x.png'}}"></image>
+      <text class="font-24 gray center">收藏</text>
+    </view>
+  </view>
+
+  <view>
+    <text class="top-text font-26 gray">{{build.subtitle}}</text>
+  </view>
+
+  <view class="top-tag flex">
+    <block wx:for='{{build.property}}' wx:key=''>
+      <view class="top-tag-section font-26 gray">{{item}}</view>
+    </block>
+  </view>
+
+  <view class="top-priarea flex-b">
+    <view class="font-30">场均
+      <text class="top-price">{{build.saleCost}}</text>
+    </view>
+    <view class="math" catchtap="openCalc">房贷计算器</view>
+  </view>
+
+  <view>
+    <text class="info-titl">开盘</text>
+    <text class="info-con">{{build.open_time}}</text>
+  </view>
+  <view>
+    <text class="info-titl">地址</text>
+    <text class="info-con info-addre elli" catchtap="openMap">{{build.location}}</text>
+  </view>
+  <view>
+    <text class="info-titl">建面</text>
+    <text class="info-con">{{build.build_area}}</text>
+  </view>
+
+  <button hover-class="none" class="more-info-btn" data-id="{{build.id}}" catchtap="openMoreHouseInfo">更多楼盘信息</button>
+
+  <image wx:if='{{image_deps}}' class="add-img" catchtap="openAddTap" mode="widthFix" src="{{image_deps}}"></image>
+
+  <!-- 地图 -->
+  <view class="title flex-b">
+    <view class="title-left h2">位置及周边</view>
+  </view>
+
+  <view>
+    <map class="map" id="map" longitude="{{build.longitude}}" latitude="{{build.latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange"
+      show-location style=""></map>
+    <!-- <view class="map-call" catchtap="callTap">咨询更多周边配套</view> -->
+  </view>
+
+  <!-- 相册 -->
+  <view class="title flex-b" wx:if='{{album.length!=0}}'>
+    <view class="title-left h2">相册</view>
+    <view class="title-right" catchtap="openAlbum">
+      <text class="font-28 gray">更多</text>
+      <image class="title-more-img" src="../../images/title-more.png"></image>
+    </view>
+  </view>
+
+  <scroll-view wx:if='{{album.length!=0}}' enable-flex='true' class="scroll-area flex" scroll-x>
+    <block wx:for='{{album}}' wx:for-item='album' wx:for-index='idx' wx:key='{{album.id}}'>
+      <view class="photo-section flex-c">
+        <image class="photo-img" src="{{album.picurl}}" data-img-url="{{album.picurl}}" bindtap="previewImage"></image>
+        <view class="photo-text font-28">{{album.name}}</view>
+      </view>
+    </block>
+  </scroll-view>
+
+</view>
+
+<view class="bottom-fixed flex {{bottomActive?'bottom-fixed active':''}}">
+  <button catchtap="sharePhotoTap" class="fixed-share-section flex-c">
+    <image class="fixed-share-img" src="../../images/share@2x.png"></image>
+    <view class="font-24">分享</view>
+  </button>
+  <view class="fixed-btn-section flex font-30" catchtap="callTap">
+    <image class="bottom-fixed-logo" src="../../images/call-num@2x.png"></image>
+    <view>一键拨号</view>
+  </view>
+  <view class="fixed-btn-section flex font-30" catchtap="showDialog">
+    <image class="bottom-fixed-logo" src="../../images/appoint@2x.png"></image>
+    <view>预约看房</view>
+  </view>
+</view>
+
+<!-- 预约弹窗 -->
+<view class="dialog" hidden="{{hiddenDialog}}">
+  <view class="mengban" catchtouchmove="preventTouchMove"></view>
+  <view class="dialog-appoint animation" catchtouchmove="preventTouchMove" >
+    <image catchtap="closeDialog" class="close-dialog" src="../../images/close@2x.png"></image>
+    <view class="dialog-appoint-tit h2 center">预约看房</view>
+    <view class="gray font-24 center">留下您的联系方式，稍后会有专属顾问与您联系！</view>
+
+    <form bindsubmit="formSubmit" report-submit='true'>
+      <input type="text" name='name' placeholder="姓名" value="{{name}}" bindinput="nameInput"></input>
+      <view class="phone-must">*</view>
+      <input type="number" name='phone' placeholder="手机号" value="{{phone}}" bindinput="phoneInput"></input>
+      <picker mode="date" value="{{date}}" start="{{startDate}}" bindchange="bindDateChange">
+        <input type="text" name='date' placeholder="预约日期" disabled="disabled" value="{{date}}"></input>
+        <image class="date-dialog" src="../../images/date@2x.png"></image>
+      </picker>
+
+      <button catchtap="appointSuccess" form-type="submit" class="dialog-appoint-submit">提交预约</button>
+    </form>
+
+  </view>
+</view>
+
+
+
+
+<!-- 海报分享弹窗 -->
+<view class="dia-area">
+  <view class="mengban" catchtouchmove="preventTouchMove" hidden="{{hiddenPhotoShare}}"></view>
+  <view class="dia-share-con root" catchtouchmove="preventTouchMove" style="{{hiddenPhotoShare?'':'transform: translateY(0);'}}">
+    <view class="dia-house-tit">
+      <view class="h2 center">分享海报</view>
+    </view>
+    <image class="close-photo" catchtap="closePhotoShare" src="../../images/close-b.png"></image>
+    <view class="dia-house-area center">
+
+      <!-- 海报 -->
+      <canvas hidden="{{hiddenPhotoShare}}" style="width: 400rpx;height: 626rpx;margin-left:145rpx;" canvas-id="mycanvas" />
+
+    </view>
+
+    <!-- 分享弹窗按钮 -->
+    <view class="flex-b">
+      <button open-type="share" class="dia-btn-type share-friend" catchtap="">转发好友</button>
+      <button class="dia-btn-type" catchtap="savePhoto">保存海报</button>
+    </view>
+  </view>
+
+</view>

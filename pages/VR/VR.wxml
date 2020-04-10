@@ -1,0 +1,3 @@
+<!--pages/VR/VR.wxml-->
+<web-view src='{{vrlink}}'></web-view>
+

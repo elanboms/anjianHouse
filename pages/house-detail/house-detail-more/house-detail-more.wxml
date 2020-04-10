@@ -1,0 +1,105 @@
+<!--pages/house-detail/house-detail-more/house-detail-more.wxml-->
+<view class="fixed-top">
+  <scroll-view enable-flex='true' class="scroll-area flex" scroll-x>
+    <view data-index="1" class="house-moreinfo-type {{currentTap==1?'active':''}}" catchtap="selectAreaType">基本信息</view>
+    <view data-index="2" class="house-moreinfo-type {{currentTap==2?'active':''}}" catchtap="selectAreaType">销售信息</view>
+    <view data-index="3" class="house-moreinfo-type {{currentTap==3?'active':''}}" catchtap="selectAreaType">小区概况</view>
+    <view data-index="4" class="house-moreinfo-type {{currentTap==4?'active':''}}" catchtap="selectAreaType">预售许可证</view>
+  </scroll-view>
+</view>
+
+
+<!-- 基本信息区域 -->
+<view class="moreinfo-root" hidden="{{currentTap==1?'':'true'}}">
+
+  <!-- 基本信息 -->
+  <view class="basic-info">
+    <view class="house-moreinfo-title font-38">基本信息</view>
+    <block wx:for='{{basic_info}}'>
+      <view class="moreinfo-section flex">
+        <view class="moreinfo-left">{{(item[0].length==3)?item[0]+'　':((item[0].length==2)?item[0]+'　　':item[0])}}</view>
+        <view class="moreinfo-right">{{item[1]}}</view>
+      </view>
+    </block>
+   
+  </view>
+  
+
+</view>
+
+<!-- 销售信息区域 -->
+<view class="moreinfo-root" hidden="{{currentTap==2?'':'true'}}">
+  <view class="sell-info">
+    <view class="house-moreinfo-title font-38">销售信息</view>
+    <block wx:for='{{sale_info}}'>
+      <view class="moreinfo-section flex">
+        <view class="moreinfo-left">{{(item[0].length==3)?item[0]+'　':((item[0].length==2)?item[0]+'　　':item[0])}}</view>
+        <view class="moreinfo-right">{{item[1]}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 小区概况区域 -->
+<view class="moreinfo-root" hidden="{{currentTap==3?'':'true'}}">
+  <view class="status-info">
+    <view class="house-moreinfo-title font-38">小区概况</view>
+    <block wx:for='{{build_info}}'>
+      <view class="moreinfo-section flex">
+        <view class="moreinfo-left">{{(item[0].length==3)?item[0]+'　':((item[0].length==2)?item[0]+'　　':item[0])}}</view>
+        <view class="moreinfo-right">{{item[1]}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 预售许可证区域 -->
+<view class="moreinfo-root" hidden="{{currentTap==4?'':'true'}}">
+  <view class="card-info">
+    <view class="house-moreinfo-title font-38">预售许可证</view>
+    <block wx:for='{{permit_info}}'>
+      <view class="moreinfo-section flex">
+        <view class="moreinfo-left">{{(item[0].length==3)?item[0]+'　':((item[0].length==2)?item[0]+'　　':item[0])}}</view>
+        <view class="moreinfo-right">{{item[1]}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 底部按钮 -->
+<view class="bottom-fixed flex {{bottomActive?'active0':''}}">
+  <button open-type="share" class="fixed-share-section flex-c">
+    <image class="fixed-share-img" src="../../../images/share@2x.png"></image>
+    <view class="font-24">分享</view>
+  </button>
+  <view class="fixed-btn-section flex" catchtap="callTap">
+    <image class="bottom-fixed-logo" src="../../../images/call-num@2x.png"></image>
+    <view>一键拨号</view>
+  </view>
+  <view class="fixed-btn-section flex" catchtap="showDialog">
+    <image class="bottom-fixed-logo" src="../../../images/appoint@2x.png"></image>
+    <view>预约看房</view>
+  </view>
+</view>
+
+
+
+<!-- 预约弹窗 -->
+<view class="dialog" hidden="{{hiddenDialog}}">
+  <view class="mengban" catchtouchmove="preventTouchMove"></view>
+  <view class="dialog-appoint  animation">
+    <image catchtap="closeDialog" class="close-dialog" src="../../../images/close@2x.png"></image>
+    <view class="dialog-appoint-tit h2 center">预约看房</view>
+    <view class="gray font-24 center">留下您的联系方式，稍后会有专属顾问与您联系！</view>
+    <input type="text" name='name' placeholder="姓名" value="{{name}}" bindinput ="nameInput"></input>
+    <input type="number" name='phone' placeholder="手机号" value="{{phone}}" bindinput ="phoneInput"></input>
+    <view class="phone-must">*</view>
+    <picker mode="date" value="{{date}}" start="{{startDate}}" bindchange="bindDateChange">
+      <input type="text" name='date' placeholder="预约日期" disabled="disabled" value="{{date}}"></input>
+      <image class="date-dialog" src="../../../images/date@2x.png"></image>
+    </picker>
+
+    <button catchtap="appointSuccess" class="dialog-appoint-submit">提交预约</button>
+
+  </view>
+</view>

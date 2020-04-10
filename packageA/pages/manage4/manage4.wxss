@@ -1,0 +1,102 @@
+page{
+  background: #f5f5f5;
+}
+.container-wrap{
+  padding-bottom: 120rpx;
+}
+.head{
+  width: 710rpx;
+  margin: 20rpx auto;  
+  background: #fff;
+  border-radius: 10rpx;
+}
+.user{
+  box-sizing: border-box;
+  padding: 40rpx 30rpx;
+  display: flex;
+  flex-direction: row; 
+  border-bottom: 1px solid #eee; 
+}
+.userImg{
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 25rpx;
+}
+.userDetail{
+  width: calc(100% - 190rpx);
+}
+.userDetail view{
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.userCompany{
+  font-size: 32rpx;
+  color: #888;
+}
+.userName{
+  font-size:40rpx;
+  font-weight: bold;
+  color: #333;
+  margin-top: 5rpx;
+}
+.userStatus{
+  font-size: 26rpx;
+  color: #666;
+}
+
+.headBtn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.headBtn view{
+  width: 50%;
+  height: 95rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+.headBtn view image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+.headBtn view:first-child{
+  border-right: 1px solid #eee;
+}
+
+.mineRow{
+  height: 100rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  margin: 20rpx;
+  border-radius: 10rpx;
+}
+.mineRow view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #333;
+}
+.mineRow>image{
+  width: 15rpx;
+  height: auto;
+}
+.mineRow view image{
+  width: 38rpx;
+  height: 38rpx;
+  margin-right: 20rpx;
+}
+.marginBtm{
+  margin-bottom: 20rpx;
+}
+.icon-xiangyoujiantou{font-size: 24rpx;color: #a8a8a8;margin-left: 5rpx;}

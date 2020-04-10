@@ -1,0 +1,34 @@
+<view class='container' wx:if="{{showContainer}}">
+  <view class='head'>
+    <view class='headTitle'>雷达统计数据</view>
+    <view class='headTips'>
+      <block wx:for='{{time}}' wx:key='idx'>
+        <view class='{{timeIndex == index?"active":""}}' data-index='{{index}}' bindtap='timeChoose'>
+          {{item}}
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='headList'>
+    <block wx:for='{{list1}}' wx:key='idx'>
+      <view>
+        <text>{{item.text}}</text>
+        <view>{{item.num}}</view>
+      </view>
+    </block>
+  </view>
+  <view class='headList'>
+    <block wx:for='{{list2}}' wx:key='idx'>
+      <view>
+        <text>{{item.text}}</text>
+        <view>{{item.num}}</view>
+      </view>
+    </block>
+  </view>
+
+  <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ecPie }}" bind:init="pieInit"></ec-canvas>
+  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ecLine }}" bind:init="lineInit"></ec-canvas>
+   <!-- <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ecBar1 }}" bind:init="barInit1"></ec-canvas> -->
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ecBar2 }}" bind:init="barInit2"></ec-canvas>
+ 
+</view>

@@ -1,0 +1,39 @@
+/* pages/news/news-detail/news-detail.wxss */
+@import "/wxParse/wxParse.wxss";
+
+page {
+  font-size: 32rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(125, 125, 125, 1);
+  line-height: 52rpx;
+}
+
+.rule-root {
+  box-sizing: border-box;
+  padding: 40rpx 45rpx;
+}
+
+.rule-tit {
+  margin-top: 80rpx;
+  margin-bottom: 50rpx;
+  text-align: center;
+  font-size: 44rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(34, 34, 34, 1);
+}
+
+.rule-root .hr-2 {
+  margin-bottom: 68rpx;
+}
+
+.tips {
+  font-size: 32rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(255, 174, 81, 1);
+}
+.rule-con{
+  margin-top: 40rpx;
+}

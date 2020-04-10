@@ -1,0 +1,79 @@
+<view class='container container-wrap'>
+  <view class='head'>
+    <view class='user'>
+      <image class='userImg' src='{{info.logo}}'></image>
+      <view class='userDetail'>
+        <view class='userCompany'>{{info.company}}</view>
+        <view class='userName'>{{info.cardname}}</view>
+        <view class='userStatus'>{{info.position}}</view>
+      </view>
+    </view> 
+    <view class='headBtn'>
+      <view data-url='/packageA/pages/editInfo/editInfo' catchtap='topath'>
+        <image src='/images/edit.png'></image>
+        <text>编辑名片</text>
+      </view>
+      <view data-url='/packageB/pages/shareCard/shareCard' catchtap='topath'>
+        <image src='/images/code.png'></image>
+        <text>我的名片码</text>
+      </view>
+    </view>
+  </view>
+  
+  <view data-url='/packageA/pages/report/report?flag=all' class='mineRow' catchtap='topath'>
+    <view>
+      <image src='/images/note.png'></image>
+      <text>我的报表</text>
+    </view>
+    <span class='iconfont icon-xiangyoujiantou'></span>
+  </view>
+
+  <!-- <view data-url='/packageA/pages/my-news/my-news' class='mineRow' catchtap='topath'>
+    <view>
+      <image src='/images/news-status.png'></image>
+      <text>我的动态</text>
+    </view>
+    <span class='iconfont icon-xiangyoujiantou'></span>
+  </view> -->
+
+  <view data-url='/packageA/pages/radar/radar' class='mineRow marginBtm' catchtap='topath'>
+    <view>
+      <image src='/images/radar.png'></image>
+      <text>BOSS雷达</text>
+    </view>
+    <span class='iconfont icon-xiangyoujiantou'></span>
+  </view>
+
+  <view data-url='/packageA/pages/poster/poster' class='mineRow marginBtm' catchtap='toposter'>
+    <view>
+      <image src='/images/poster.png'></image>
+      <text>每日海报</text>
+    </view>
+    <span class='iconfont icon-xiangyoujiantou'></span>
+  </view>
+
+  <view data-url='/packageA/pages/radar/radar' class='mineRow marginBtm' catchtap='tomessage'>
+    <view>
+      <image src='/images/message.png'></image>
+      <text>话术管理</text>
+    </view>
+    <span class='iconfont icon-xiangyoujiantou'></span>
+  </view>
+  <view data-url='/packageA/pages/caseManage/caseManage' class='mineRow marginBtm' catchtap='toCaseManage'>
+    <view>
+      <image src='/images/caseImg.png'></image>
+      <text>房源管理</text>
+    </view>
+    <span class='iconfont icon-xiangyoujiantou'></span>
+  </view>
+
+  <view class='tabbar manageTabbar'>
+    <block wx:for='{{tabbar}}' wx:key='idx'>
+      <navigator open-type='redirect' hover-class='none' class='{{tabbarIndex == index?"active":""}}' url='{{item.url}}'>
+        <image src='{{tabbarIndex == index?item.imgSelect:item.img}}' class='tabbarImg'></image>
+        <text>{{item.text}}</text>
+         <view wx:if="{{index == 2 && hasUnRead}}"></view>
+      </navigator>
+    </block>
+  </view>
+</view>

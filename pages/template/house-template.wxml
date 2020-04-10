@@ -1,0 +1,23 @@
+<!-- 楼盘模板 -->
+
+<template name='house-template'>
+
+  <view class="house-section flex-s" data-id="{{id}}" data-idx="{{idx}}" catchtap="openHouseDetail">
+    <image class="house-section-img" src="{{img}}"></image>
+    <view class="house-section-con">
+      <view class="h2 elli">{{title}}</view>
+      <view class="house-section-price elli">约
+        <text>{{saleCost}}</text></view>
+      <view class="house-section-text elli">{{viewnum}}人浏览</view>
+      <view class="house-section-text elli">{{province}} / {{city}} / {{area}}</view>
+      <view class="house-section-tag">
+        <text hidden="{{!property[0]}}">{{property[0]}}</text>
+        <text hidden="{{!property[1]}}">{{property[1]}}</text>
+        <text hidden="{{!property[2]}}">{{property[2]}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="house-hr hr-2"></view>
+
+</template>
+

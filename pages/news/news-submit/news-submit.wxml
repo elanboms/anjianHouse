@@ -1,0 +1,9 @@
+<!--pages/news/news-submit/news-submit.wxml-->
+<form report-submit="true" bindsubmit="submitFormTap">
+
+<textarea class="textarea" name='textcon' placeholder="请输入评论内容">
+</textarea>
+
+<button form-type="submit" class="btn">评论</button>
+
+</form>

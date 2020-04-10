@@ -1,0 +1,92 @@
+/* pages/login/login.wxss */
+
+page{
+  background: #fff;
+}
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 50rpx;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+  color: #000;
+}
+.info image{
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 60rpx;
+  margin-bottom: 30rpx;
+}
+.con{
+  margin-top: 50rpx;
+  padding-top: 30rpx;
+  border-top: 1px solid #dedede;
+  font-size: 28rpx;
+  color: #000;
+}
+.text{
+  width: 100%;
+  margin-top: 30rpx;
+  margin-bottom: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 24rpx;
+  color: #666;
+}
+.text text{
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #666;
+  margin-right: 20rpx;
+}
+.getFormId{
+  display:block;
+  width: 100%;
+  position: relative;
+}
+.formIdBtn {
+  width: 0rpx;
+  height: 0rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  position:absolute;
+  top: 0;
+  left: 0;
+}
+.formIdBtnCon{
+  width: calc(100% - 100rpx);
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  background: #1AAD19;
+  font-size: 32rpx;
+  position: fixed;
+}
+.formIdBtnCon2{
+  width: calc(100% - 100rpx);
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 10rpx;
+  color: #000;
+  background: #ccc;
+  font-size: 32rpx;
+  position: fixed;
+}
+.cancel{
+  font-size: 26rpx;
+  line-height: 80rpx;
+  color: #272B56;
+  margin-top: 100rpx;
+}

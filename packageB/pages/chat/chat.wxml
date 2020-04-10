@@ -1,0 +1,137 @@
+<form class='container' bindsubmit='formSubmit' report-submit="true">
+  <scroll-view scroll-y class='newsContainer {{emojiShow?"scrollTop":""}}' id='newsContainer' scroll-top='{{scrolltop}}'>
+    <block wx:for='{{news}}' wx:for-index='index' wx:for-item='item' wx:key='idx'>
+
+      <block wx:for='{{item.list}}' wx:for-index='index1' wx:for-item='item1' wx:key='idx'>
+
+        <view class='news {{item1.send == 0?"right":"left"}}'>
+          <image class='userImg' src='{{m_userimg}}'></image>
+          <view class='content content0' wx:if='{{item1.template == 0}}'>
+            <view class='text'>{{item1.text}}</view>
+          </view>
+        </view>
+      </block>
+
+
+      <block wx:for='{{chat_list}}' wx:for-index='index0' wx:for-item='items' wx:key='idxs'>
+        <view wx:if="{{items.log_type != -1}}">
+          <view class='date'>
+            <text>{{items.addtime}}</text>
+          </view>
+          <view class='news {{items.flag == 1?"right":"left"}}'>
+            <image class='userImg' src='{{items.headimg}}'></image>
+            <view class='content content1' wx:if='{{items.flag == 2}}'>
+              <!-- <view class='text1'>{{items.content}}</view> -->
+              <view class='text1' wx:if='{{items.log_type == 1}}'>{{items.content}}</view>
+              <view class='productCon' wx:if='{{items.log_type == 2}}'>
+                <image class='productImg' src='{{items.filename}}' data-src="{{items.filename}}" catchtap='previewImg'></image>
+                <view class='text1'>{{items.content}}</view>
+              </view>
+            </view>
+            <view class='content content2' wx:if='{{items.flag == 1}}'>
+              <view class='text' wx:if='{{items.log_type == 1}}'>{{items.content}}</view>
+              <view class='productCon' wx:if='{{items.log_type == 2}}'>
+                <image class='productImg' src='{{items.filename}}' data-src="{{items.filename}}" catchtap='previewImg'></image>
+                <view class='text'>{{items.content}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='date' wx:if="{{items.log_type == -1}}">
+          <text>你刚刚复制了微信</text>
+        </view>
+      </block>
+
+    </block>
+  </scroll-view>
+  <view class="want {{emojiShow?'wantTop':''}}">
+    <view>我想：</view>
+    <button catchtap='uploadImage' hover-class='none' form-type='submit'>发送图片</button>
+  </view>
+
+  <form class='foot {{emojiShow?"footTop":""}}' style='bottom:{{height}}px;'  bindsubmit='sendmsg' report-submit="true">
+    <view class='footCon'>
+      <button bindtap='emojiShowHide'>
+        <image src='/images/smile.png' class='addImg'></image>
+      </button>
+      <input type='text' placeholder='输入内容...' bindfocus="textAreaFocus" bindblur="textAreaBlur"  value='{{ipt_text}}' confirm-hold='{true}' bindinput='msginput' cursor-spacing='0'></input>
+      <view class='footViewCon'>
+        <button form-type='submit' class='footBtn'>
+          <view class='footView'>
+            <form bindsubmit='formSubmit' report-submit="true">
+              <button form-type='submit' class='footBtn'>
+                <view class='footView'>
+                  <form bindsubmit='formSubmit' report-submit="true">
+                    <button form-type='submit' class='footBtn'>
+                      <view class='footView'>
+                        <form bindsubmit='formSubmit' report-submit="true">
+                          <button form-type='submit' class='footBtn'>
+                            <view class='footView'>
+                              <form bindsubmit='formSubmit' report-submit="true">
+                                <button form-type='submit' class='footBtn'>
+                                  <view class='footView'>
+                                    <form bindsubmit='formSubmit' report-submit="true">
+                                      <button form-type='submit' class='footBtn'>
+                                        <view class='footView'>
+                                          <form bindsubmit='formSubmit' report-submit="true">
+                                            <button form-type='submit' class='footBtn'>
+                                              <view class='footView'>
+                                                <form bindsubmit='formSubmit' report-submit="true">
+                                                  <button form-type='submit' class='footBtn'>
+                                                    <view class='footView'>
+                                                      <form bindsubmit='formSubmit' report-submit="true">
+                                                        <button form-type='submit' class='footBtn'>
+                                                          <view class='footView'>
+                                                            <form bindsubmit='formSubmit' report-submit="true">
+                                                              <button form-type='submit' class='footBtn'>
+                                                                <view class='footView'>
+                                                                  <form bindsubmit='formSubmit' report-submit="true">
+                                                                    <button form-type='submit' class='footBtn'>
+                                                                      <view class='footView'>发送</view>
+                                                                    </button>
+                                                                  </form>
+                                                                </view>
+                                                              </button>
+                                                            </form>
+                                                          </view>
+                                                        </button>
+                                                      </form>
+                                                    </view>
+                                                  </button>
+                                                </form>
+                                              </view>
+                                            </button>
+                                          </form>
+                                        </view>
+                                      </button>
+                                    </form>
+                                  </view>
+                                </button>
+                              </form>
+                            </view>
+                          </button>
+                        </form>
+                      </view>
+                    </button>
+                  </form>
+                </view>
+              </button>
+            </form>
+          </view>
+        </button>
+      </view>
+    </view>
+  </form>
+
+  <!--emoji表情盒子-->
+  <view class="emoji-box {{emojiShow? 'emojiShow' : ''}}">
+    <scroll-view scroll-y="true" bindscroll="emojiScroll" style="height:200px">
+      <block wx:for="{{emojis}}" wx:for-item="e" wx:key="">
+        <view class="emoji-cell">
+          <image class="touch-active" catchtap="emojiChoose" src="http://soupu.oss-cn-shanghai.aliyuncs.com/emoji/{{e.emoji}}.png" data-emoji="{{e.char}}" data-oxf="{{e.emoji}}"></image>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+</form>

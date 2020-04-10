@@ -1,0 +1,28 @@
+<!--pages/hot-activity-list/hot-activity-list.wxml-->
+<import src='../template/activity-template.wxml' />
+
+<view class="root">
+
+  <view class="top main flex">
+    <!-- <image class="add-img" src="../../images/地址@2x.png"></image>
+    <view class="city">合肥</view> -->
+    <view class="top-right flex">
+      <image class="seach-img" src="../../images/search@2x.png"></image>
+      <input bindblur="searchTap" value="{{searchText}}" placeholder="请输入搜索关键词"></input>
+    </view>
+  </view>
+
+
+
+</view>
+
+<!-- 热门活动 -->
+<view class="activity root flex-c">
+
+  <view class="acti-area">
+    <block wx:for="{{activityList}}">
+      <template is='activity-template' data='{{...item}}'></template>
+    </block>
+  </view>
+
+</view>

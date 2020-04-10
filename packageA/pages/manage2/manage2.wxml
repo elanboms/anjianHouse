@@ -1,0 +1,49 @@
+<view class='container'> 
+  <form bindsubmit='formSubmit'>
+    <view  class='search'>
+      <input name='keywords' placeholder='关键词/标签搜索'></input>
+      <button form-type='submit'>搜索</button>
+    </view> 
+  </form>
+  <navigator class='navi' hover-class='none' url='/packageA/pages/customers/customers'>
+    <image src='/images/newC.png'></image>
+    <text>新增客户</text>
+  </navigator>
+  <navigator class='navi' hover-class='none' url='/packageA/pages/tips/tips'>
+    <image src='/images/tag.png'></image>
+    <text>标签管理</text>
+  </navigator>
+  <view class='title'>客户列表</view>
+  <view class='nohave' wx:if="{{nohave == 0}}">你还没有客户哦，赶快去派发名片吧</view>
+  <view wx:if="{{nohave != 0}}">
+    <block wx:for='{{customers}}' wx:key='idx'>
+      <view class='customers'>
+        <view class='customersDetail' id='{{item.id}}' catchtap='tocustomersDetail'>
+          <image class='customersImg' src='{{item.logo}}'></image>
+          <view class='customersInfo'>
+            <view class='customersName'>{{item.wechat_name}}</view>
+            <view class='customersCon'>{{item.log_time}}  {{item.log_txt}}</view>
+            <view class='customersSou'>{{item.source_text}}</view>
+            <view class='customersTips'>
+              <block wx:for='{{item.tips}}'>
+                <text>{{item.title}}</text>
+              </block>
+            </view>
+          </view>
+        </view>
+        <span class='iconfont icon-xiaoxi1' id='{{item.id}}' catchtap='tochats' ></span>
+      </view>
+    </block>
+  </view>
+  <!-- <view class='loadMore'>点击加载更多</view> -->
+
+  <view class='tabbar manageTabbar'>
+    <block wx:for='{{tabbar}}' wx:key='idx'>
+      <navigator open-type='redirect' hover-class='none' class='{{tabbarIndex == index?"active":""}}' url='{{item.url}}'>
+        <image src='{{tabbarIndex == index?item.imgSelect:item.img}}' class='tabbarImg'></image>
+        <text>{{item.text}}</text>
+         <view wx:if="{{index == 2 && hasUnRead}}"></view>
+      </navigator>
+    </block>
+  </view>
+</view>

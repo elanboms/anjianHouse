@@ -1,0 +1,54 @@
+<!--pages/center/center.wxml-->
+<form>
+  <image class="position-bg" src="{{positionbg}}"></image>
+  <image class="position-user" src="{{user.avatarUrl}}"></image>
+  <view class="center-root root">
+
+    <view class="center-top-section">
+      <view class="center">{{user.nickName}}</view>
+      <view class="center-phone-section center flex-center">
+        <view class="font-28 gray">{{user.telphone}}</view>
+        <view class="center-certification">{{user.telphone.length!=0?'已完善资料':'未完善资料'}}</view>
+      </view>
+    </view>
+
+    <view class="center-center-section flex"  data-idx="5" catchtap="{{user.telphone.length!=0?'showTips':'click'}}">
+
+      <view class="cc-section flex">
+        <view class="cc-con flex-c">
+          <text class="cc-section-tit">完善资料</text>
+          <text class="cc-section-text">{{user.telphone.length!=0?'已完善资料':'未完善，快去完善 >'}}</text>
+        </view>
+        <image class="cc-section-img" src="../../images/add-information@2x.png"></image>
+      </view>
+
+      <view class="cc-section cc-section-right flex" data-idx="6" catchtap="click">
+        <view class="cc-con cc-right flex-c">
+          <text class="cc-section-tit">客户登记</text>
+          <text class="cc-section-text">快速登记客户信息</text>
+        </view>
+        <image class="cc-section-img" src="../../images/customer-regist@2x.png"></image>
+      </view>
+
+    </view>
+
+    <!-- 列表 -->
+    <view class="center-bottom-section">
+
+      <block wx:for='{{centerList}}' wx:for-index='idx' wx:key='{{item.id}}'>
+        <view class="cb-section flex-b" data-idx="{{idx}}" catchtap="click">
+          <view class="flex-s">
+            <image class="cb-section-img" src="{{item.imgUrl}}"></image>
+            <view class="cb-section-tit">{{item.title}}</view>
+          </view>
+          <image class="cb-section-more" src="../../images/title-more.png"></image>
+        </view>
+        <view  wx:if="{{idx!=4}}"  class="hr-2"></view>
+      </block>
+
+    </view>
+
+
+
+  </view>
+</form>

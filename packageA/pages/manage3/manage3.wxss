@@ -1,0 +1,58 @@
+.container{
+  padding-bottom: 50px;
+}
+.list{
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dedede;
+  position: relative;
+}
+.listUnread{
+  position: absolute;
+  top: 6rpx;
+  left: 86rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: #FE4241;
+  border-radius: 50%;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color: #fff;
+}
+.listImg{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 5rpx;
+  margin-right: 20rpx;
+}
+.listDetail{
+  width: calc(100% - 240rpx);
+  height: 80rpx;
+}
+.listName{
+  font-size: 32rpx;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 10rpx;
+}
+.listText{
+  font-size: 26rpx;
+  color: #666;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.listTime{
+  width: 140rpx;
+  font-size: 24rpx;
+  color: #888;
+  text-align: right;
+}

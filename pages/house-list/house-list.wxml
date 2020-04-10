@@ -1,0 +1,189 @@
+<!--pages/house-list/house-list.wxml-->
+<import src='../template/house-template.wxml' />
+
+<view class="position-top root">
+
+  <view class="top main flex">
+    <view class="top-right flex">
+      <image class="seach-img" src="../../images/search@2x.png"></image>
+      <input bindblur='searchTap' placeholder="请输入搜索关键词" value="{{searchText}}"></input>
+    </view>
+  </view>
+
+</view>
+
+<!-- 导航栏 -->
+<view class="nav flex">
+  <view class='{{area.isTap==true?"nav-item active":"nav-item"}}' catchtap="tapArea">
+    <view>
+      <text class="title">{{area.title}}</text>
+      <text class="sanjiao"></text>
+    </view>
+  </view>
+
+  <view class='{{price.isTap==true?"nav-item active":"nav-item"}}' catchtap="tapPrice">
+    <view>
+      <text class="title">{{price.title}}</text>
+      <text class="sanjiao"></text>
+    </view>
+  </view>
+
+  <view class='{{type.isTap==true?"nav-item active":"nav-item"}}' catchtap="tapType">
+    <view style="border:none;">
+      <text class="title">{{type.title}}</text>
+      <text class="sanjiao"></text>
+    </view>
+  </view>
+
+  <view class='{{more.isTap==true?"nav-item active":"nav-item"}}' catchtap="tapMore">
+    <view style="border:none;">
+      <text class="title">{{more.title}}</text>
+      <text class="sanjiao"></text>
+    </view>
+  </view>
+
+  <view class='{{sort.isTap==true?"nav-item active":"nav-item"}}' catchtap="tapSort">
+    <view style="border:none;">
+      <image class="srit-img" src="{{sort.isTap==true?'../../images/sequence-true@2x.png':'../../images/sequence@2x.png'}}"></image>
+    </view>
+  </view>
+
+</view>
+
+<!-- 楼盘列表 -->
+<view class="house-area root">
+  <block wx:for="{{houseList}}" wx:for-index='idx' wx:key='id'>
+    <template is='house-template' data='{{...item,idx}}'></template>
+  </block>
+</view>
+
+<!-- 区域显示 -->
+<view class="position-area" hidden="{{area.isTap!=true}}">
+  <view class="mengban" catchtouchmove="preventTouchMove"></view>
+  <view class="position-area-con" catchtouchmove="preventTouchMove">
+    <scroll-view scroll-y enable-flex='true' class="position-area-list root">
+
+      <block wx:for='{{areaList}}' wx:for-index='idx' wx:key=''>
+        <view class="position-area-section flex-c">
+          <view class="flex-b" data-id="{{item.id}}" data-idx="{{idx}}" catchtap="selectAreaTap">
+            <view class="{{areaIndex == idx ? 'active1':''}}">{{item.value}}</view>
+            <image hidden="{{areaIndex != idx}}" class="select-true-img" src="../../images/select-true@2x.png"></image>
+          </view>
+          <text class="hr-2 hr-mag"></text>
+        </view>
+      </block>
+
+    </scroll-view>
+    <view class="position-area-btn-group flex-b">
+      <button class="position-area-clear" catchtap="areaClear">清空</button>
+      <button class="position-area-confirm" catchtap="areaConfirm">确定</button>
+    </view>
+  </view>
+</view>
+
+
+<!-- 价格显示 -->
+<view class="position-area" hidden="{{price.isTap!=true}}">
+  <view class="mengban" catchtouchmove="preventTouchMove"></view>
+  <view class="position-area-con flex" catchtouchmove="preventTouchMove">
+
+    <view class="price-tit flex-c">
+      <view class="{{selectPriceType?'price-active':''}}" data-type="1" catchtap="priceTypeTap">总价</view>
+      <text class="hr-2"></text>
+      <view class="{{selectPriceType?'':'price-active'}}" data-type="2" catchtap="priceTypeTap">单价</view>
+    </view>
+    <scroll-view scroll-y enable-flex='true' class="position-area-list position-price-list  root">
+
+      <block wx:for='{{priceList}}' wx:for-index='priceidx' wx:key=''>
+        <view class="position-area-section position-price-section flex-c">
+          <view class="flex {{priceidx==selectPriceIdx?'price-active':''}}" data-priceidx="{{priceidx}}" data-id="{{item.id}}" catchtap="selectPriceTap">
+            {{item.value}}
+          </view>
+          <text class="hr-2 hr-mag"></text>
+        </view>
+      </block>
+
+    </scroll-view>
+    <view class="position-area-btn-group position-price-btn-group flex">
+      <input type="number" bindinput="minPriceInputTap" placeholder="最低价" value="{{minPrice}}"></input>
+      <text>-</text>
+      <input type="number" bindinput="maxPriceInputTap" placeholder="最高价" value="{{maxPrice}}"></input>
+      <button catchtap="customPriceSearch">确定</button>
+    </view>
+
+  </view>
+</view>
+
+
+<!-- 户型显示 -->
+<view class="position-area" hidden="{{type.isTap!=true}}">
+  <view class="mengban" catchtouchmove="preventTouchMove"></view>
+  <view class="position-area-con">
+    <scroll-view scroll-y enable-flex='true' class="position-area-list root">
+
+      <block wx:for='{{typeList}}' wx:for-index='idx' wx:key=''>
+        <view class="position-area-section flex-c">
+          <view class="flex-b" data-idx="{{idx}}" data-id="{{item.id}}" catchtap="selectTypeTap">
+            <view class="{{typeIndex == idx ? 'active1':''}}">{{item.value}}</view>
+            <image hidden="{{typeIndex != idx}}" class="select-true-img" src="../../images/select-true@2x.png"></image>
+          </view>
+          <text class="hr-2 hr-mag"></text>
+        </view>
+      </block>
+
+    </scroll-view>
+    <view class="position-area-btn-group position-type-btn">
+      <button class="position-type-confirm" catchtap="typeConfirm">确定</button>
+    </view>
+  </view>
+
+</view>
+
+
+<!-- 筛选 -->
+<view class="position-area" hidden="{{more.isTap!=true}}">
+  <view class="mengban" catchtouchmove="preventTouchMove"></view>
+  <view class="position-area-con">
+
+    <scroll-view scroll-y enable-flex='true' class="position-area-list flex-c root">
+
+      <block wx:for='{{moreState}}' wx:for-index='idx' wx:key=''>
+        <view class="moreState-tit">{{item.moreStateTit}}</view>
+        <view class="flex flex-wr">
+          <block wx:for='{{item.moreCard}}' wx:for-item='moreCard' data-id='{{moreCard.id}}' wx:for-index='idxcard' wx:key=''>
+            <view wx:if='{{idx==0}}' class="{{moreCard.isChoose5 ? 'moreCard-section active':'moreCard-section'}}" data-selected="{{moreCard.isChoose5}}" data-id="{{moreCard.id}}" data-idx="{{idx}}" data-idy="{{idxcard}}" catchtap="selectMoreCard">{{moreCard.value}}</view>
+            <view wx:if='{{idx==1}}' class="{{moreCard.isChoose6 ? 'moreCard-section active':'moreCard-section'}}" data-selected="{{moreCard.isChoose6}}" data-id="{{moreCard.id}}" data-idx="{{idx}}" data-idy="{{idxcard}}" catchtap="selectMoreCard">{{moreCard.value}}</view>
+            <view wx:if='{{idx==2}}' class="{{moreCard.isChoose7 ? 'moreCard-section active':'moreCard-section'}}" data-selected="{{moreCard.isChoose7}}" data-id="{{moreCard.id}}" data-idx="{{idx}}" data-idy="{{idxcard}}" catchtap="selectMoreCard">{{moreCard.value}}</view>
+          </block>
+        </view>
+      </block>
+
+    </scroll-view>
+
+    <view class="position-area-btn-group flex-b">
+      <button class="position-area-clear" catchtap="moreStateClear">清空</button>
+      <button class="position-area-confirm" catchtap="moreStateConfirm">确定</button>
+    </view>
+  </view>
+
+</view>
+
+
+<!-- 排序 -->
+<view class="position-area" hidden="{{sort.isTap!=true}}">
+  <view class="mengban" catchtouchmove="preventTouchMove"></view>
+  <view class="position-area-con" catchtouchmove="preventTouchMove">
+    <scroll-view scroll-y enable-flex='true' class="position-area-list root">
+      <block wx:for='{{sortList}}' wx:for-index='idx' wx:key=''>
+        <view class="position-area-section flex-c">
+          <view class="flex-b" data-idx="{{idx}}"  data-id="{{item.id}}" catchtap="selectSortTap">
+            <view class="{{sortIndex==idx?'active1':''}}">{{item.sort}}</view>
+
+          </view>
+          <text class="hr-2 hr-mag"></text>
+        </view>
+      </block>
+    </scroll-view>
+
+  </view>
+</view>

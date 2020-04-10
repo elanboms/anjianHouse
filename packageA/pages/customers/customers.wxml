@@ -1,0 +1,22 @@
+<view class='container'>
+  <view>
+    <block wx:for='{{customers}}' wx:key='idx'>
+      <view class='customers'>
+        <view class='customersDetail' id='{{item.id}}' catchtap='tocustomersDetail'>
+          <image class='customersImg' src='{{item.logo}}'></image>
+          <view class='customersInfo'>
+            <view class='customersName'>{{item.wechat_name}}</view>
+            <view class='customersCon'>{{item.log_time}}  {{item.log_txt}}</view>
+            <view class='customersSou'>{{item.source_text}}</view>
+            <view class='customersTips'>
+              <block wx:for='{{item.tips}}'>
+                <text>{{item.text}}</text>
+              </block>
+            </view>
+          </view>
+        </view>
+        <span class='iconfont icon-xiaoxi1' id='{{item.id}}' catchtap='tochats'></span>
+      </view>
+    </block>
+  </view>
+</view>

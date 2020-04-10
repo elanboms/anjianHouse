@@ -1,0 +1,12 @@
+<!--pages/caseList/caseList.wxml-->
+<view class='case-wrap'>
+  <!-- 案例图 -->
+  <block wx:for="{{ caselist }}" wx:for-index="index" wx:for-item="case" >
+    <view class='case-item'>
+      <image bindtap='toDetail' id="{{ case.case_id }}" src="{{ case.img }}" mode='widthFix'></image>
+      <view bindtap='toDetail' id="{{ case.case_id }}" class='case-row'>
+        <text class='name'>{{ case.title }}</text>
+      </view> 
+    </view>
+  </block>
+</view>

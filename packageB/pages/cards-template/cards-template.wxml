@@ -1,0 +1,20 @@
+<template name='cards'>
+  <view class='cardsContainer'>
+    <view class='card'>
+      <view class='cardInfo'>
+        <view class='userImgWrap'><image class='userImg' src='{{img}}' mode='widthFix'></image></view>
+        <view class='user-wrap'> 
+          <view class='user'> 
+            <view class='userInfo'>
+              <view class='userName'>{{name}}</view>
+              <view class='userStatus' wx:if="{{status}}">-{{status}}-</view>
+            </view>
+            <view class='cardPhone' wx:if="{{phone}}" data-text='{{phone}}' catchtap='makePhoneCall'>{{phone}}</view>
+            <!-- <view class='userCompany' wx:if="{{company}}">{{company}}</view> -->
+          </view>
+          <image class='cardCode' src='{{qrcode}}' catchtap='previewCardCode'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

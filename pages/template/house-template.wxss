@@ -1,0 +1,51 @@
+
+.house-section {
+  width: 690rpx;
+}
+
+.house-section-img {
+  width: 320rpx;
+  height: 240rpx;
+  margin-right: 37rpx;
+  border-radius: 10rpx;
+}
+
+.house-section-price {
+  width: 330rpx;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(255, 0, 0, 1);
+}
+.house-section-price text{
+  font-size:36rpx;
+}
+
+.house-section-text {
+  width: 330rpx;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(117, 117, 117, 1);
+}
+
+.house-section-text:last-child {
+  font-size: 26rpx;
+}
+
+.house-section-tag text{
+  height: 36rpx;
+  padding: 0 10rpx;
+  line-height: 36rpx;
+  margin-right: 15rpx;
+  color: #6569B9;
+  background: #F3F2F7;
+  border-radius: 5rpx;
+  font-size: 20rpx;
+  text-align: center;
+}
+.house-hr{
+  margin: 40rpx 0;
+}

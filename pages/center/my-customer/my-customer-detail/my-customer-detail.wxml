@@ -1,0 +1,87 @@
+<!--pages/center/my-customer/my-customer-detail/my-customer-detail.wxml-->
+<view class="position-bg"></view>
+<view class="cust-detail-root root">
+  <view class="cust-section">
+
+    <view class="flex-s">
+      <!-- <image class="cust-img" src="../../../../images/exam.jpg"></image> -->
+      <view class="flex-c">
+        <view class="flex">
+          <view class="cust-name">{{customer.name}}</view>
+          <!-- <view class="cust-tag">{{customer.sex}}</view> -->
+          <view class="cust-tag">{{customer.level_name}}</view>
+        </view>
+        <view class="cust-phone gray">联系电话：{{customer.mobile}}</view>
+      </view>
+    </view>
+
+    <image data-phone="{{customer.mobile}}" catchtap="callTap" class="position-call" src="../../../../images/phone-call@2x.png"></image>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="cust-section">
+    <view class="cust-section-tit h2">基本信息</view>
+    <view class="hr-2"></view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">来访时间</view>
+      <view>{{customer.visit_date}}</view>
+    </view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">来访途径</view>
+      <view>{{customer.visit_way}}</view>
+    </view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">居住区域</view>
+      <view>{{customer.address}}</view>
+    </view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">工作职业</view>
+      <view>{{customer.job}}</view>
+    </view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">家庭结构</view>
+      <view>{{customer.home_name}}</view>
+    </view>
+  
+  </view>
+
+  <!-- 意向需求 -->
+  <view class="cust-section">
+    <view class="cust-section-tit h2">意向需求</view>
+    <view class="hr-2"></view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">推荐产品</view>
+      <view>{{customer.build_name}}</view>
+    </view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">需求面积</view>
+      <view>{{customer.area}}</view>
+    </view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">需求楼层</view>
+      <view>{{customer.floor}}</view>
+    </view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">预算单价</view>
+      <view>{{customer.price}}</view>
+    </view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">购房资格</view>
+      <view>{{buyStatus}}</view>
+    </view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">置业顾问名称</view>
+      <view>{{customer.trueName}}</view>
+    </view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">置业次数</view>
+      <view>{{customer.buynum}}</view>
+    </view>
+    <view class="cust-section-con flex-b">
+      <view class="cust-section-left">微信添加情况</view>
+      <view>{{wxStatus}}</view>
+    </view>
+  
+  </view>
+
+</view>

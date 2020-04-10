@@ -1,0 +1,9 @@
+ <!--packageA/pages/poster/poster.wxml-->
+<canvas
+ class='canvas'
+ canvas-id="canvas"
+ style="width:{{width + 'px'}};height:{{height + 'px'}}"
+></canvas>
+<view class='change' catchtap='huan'>换一换?</view>
+<view class="tips">保存图片发送给朋友或朋友圈~</view>
+<view class='save' bindtap='saveHandle'>保存海报</view>

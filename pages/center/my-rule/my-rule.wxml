@@ -1,0 +1,7 @@
+<!--pages/center/my-rule/my-rule.wxml-->
+<import src='../../../wxParse/wxParse.wxml' />
+
+
+<view class="rule-root">
+ <template is='wxParse' data='{{wxParseData:text.nodes}}'></template>
+</view>

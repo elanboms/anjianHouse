@@ -1,0 +1,9 @@
+/* pages/mine/my-sign/my-sign.wxss */
+@import "../../template/activity-template.wxss";
+
+
+.acti-area {
+  position: relative;
+  margin-top: 30rpx;
+  background: #fff;
+}

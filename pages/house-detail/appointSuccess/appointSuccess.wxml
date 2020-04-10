@@ -1,0 +1,11 @@
+<!--pages/house-detail/appointSuccess/appointSuccess.wxml-->
+<view class="box">
+  <image class="appo-img" src="../../../images/appointSuccess.png"></image>
+  <view class="appo-tit center">预约提交成功~</view>
+  <view class="gray font-28 center">稍后顾问将电话联系您，请注意接听</view>
+  <button class="appo-btn-1" catchtap="openMyReserve">查看我的预约</button>
+  <button catchtap="backTap" class="appo-btn-2">继续看房源</button>
+
+
+
+</view>

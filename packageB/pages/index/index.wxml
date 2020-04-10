@@ -1,0 +1,290 @@
+<import src="../../../wxParse/wxParse.wxml"/> 
+<import src='/packageB/pages/cards-template/cards-template.wxml' />    
+<view class="header" style="height:{{navH + 'px'}}">
+  <view class="personal" bindtap="handleMine"><open-data type="userAvatarUrl" class='userAvatarUrl'></open-data>个人中心</view>
+  <view class="tit" style="margin-top:{{barHeight + 'px'}}">安建翰林天筑</view>
+</view>
+
+<!-- </view> --> 
+<form class="container container-wrap"  bindsubmit='getFormId' report-submit="true" >
+  <scroll-view style="margin-top:{{navH + 'px'}}" scroll-y bindscroll="scroll">
+    <view class='scrollContainer'> 
+      <!-- 名片模板   -->
+      <template is='cards' data="{{...user}}" />
+      <view class='cardBtn'>
+        <button hover-class='none' bindtap="actionSheetTap" form-type='submit'>转发名片</button>
+        <form bindsubmit='formSubmit'>
+          <button form-type='submit'>保存通讯录</button>
+        </form>
+      </view>
+      <view class='peopleInfo'>
+        <view class='peopleView'>
+          <view>
+            <block wx:for='{{cardView}}' wx:key='idx'>
+              <image src='{{item.op_avatar}}' wx:if='{{index<6}}'></image>
+            </block>
+            <text>...</text>
+          </view>
+          <text>{{user.view}}次浏览</text>
+        </view>
+
+        <view class='peopleBtn'>
+          <button class='tozan' catchtap='tozan' hover-class='none' form-type='submit'>
+            <image src='/img/zan.png' wx:if='{{!zan}}'></image>
+            <image src='/img/zan1.png' wx:else></image>
+            <text>靠谱数{{zannum}}</text>
+          </button>
+        </view>
+      </view>
+      <view >
+        <button class='detailLook' catchtap='showDetail' hover-class='none' form-type='submit'>
+          <text>查看详情</text>
+          <span class='iconfont icon-xiangyoujiantou arrowBtm' wx:if='{{!showDetail}}'></span>
+          <span class='iconfont icon-xiangyoujiantou arrowTop' wx:else ></span>
+        </button>
+      </view>
+      <!-- 企业微信客服配置 -->
+    <!-- <view style="width:85%; height:auto; margin:auto; margin-top:20px;">
+      <cell styleType='1' buttonStyle='light'   bind:completemessage="completemessage" plugid='{{cardinfo.qykfid}}' buttonText='2'  /> -->
+      <!-- 05ebafb20e05726233348a764997e19f gu-->
+      <!-- 55ecf9da7cb2cf76011f2c455b63c8c2 liu-->
+      <!-- ecc244a7478e204afe132d70e76b0241 duo -->
+    <!-- </view> -->
+      <!-- 公众号关注组件 -->
+      <view style="width:100%; height:auto; margin-top:20px;" wx:if="{{showgz}}">
+        <official-account style="" bindload="bindload"></official-account>
+      </view>
+
+      <view class='infoDetail' wx:if='{{showDetail}}'>
+        <view class='title'>
+          <view>
+            <view></view>
+            <text>详细信息</text>
+          </view>
+        </view>
+        <view class='sectionCon'>
+          <view class='section' wx:if="{{user.phone}}">
+            <view>
+              <text>手机</text>
+              <view>{{user.phone}}</view>
+            </view>
+            <button hover-class='none' form-type='submit' data-text='{{user.phone}}' bindtap='makePhoneCall' data-name='phone'>
+              <image src='/img/phone.png'></image>
+            </button>
+          </view>
+          <view class='section' wx:if="{{user.weixin}}">
+            <view>
+              <text>微信</text>
+              <view>{{user.weixin}}</view>
+            </view>
+            <button hover-class='none' form-type='submit' data-text='{{user.weixin}}' bindtap='copyText' data-name="weixin">
+              <image src='/img/copy.png'></image>
+            </button>
+          </view>
+          <view class='section' wx:if="{{user.company}}">
+            <view>
+              <text>公司</text>
+              <view>{{user.company}}</view>
+            </view>
+            <button hover-class='none' form-type='submit' data-text='{{user.company}}' bindtap='copyText' data-name='com'>
+              <image src='/img/copy.png'></image>
+            </button>
+          </view>
+          <view class='section' wx:if="{{user.email}}">
+            <view>
+              <text>邮箱</text>
+              <view>{{user.email}}</view>
+            </view>
+            <button hover-class='none' form-type='submit' data-text='{{user.email}}' bindtap='copyText' data-name='email'>
+              <image src='/img/copy.png'></image>
+            </button>
+          </view>
+          <view class='section' wx:if="{{user.tel}}">
+            <view>
+              <text>座机</text>
+              <view>{{user.tel}}</view>
+            </view>
+            <button hover-class='none' form-type='submit' data-text='{{user.tel}}' bindtap='makePhoneCall' data-name='tel'>
+              <image src='/img/copy.png'></image>
+            </button>
+          </view>
+          <view class='section' wx:if="{{user.address}}">
+            <view>
+              <text>地址</text>
+              <view>{{user.address}}</view>
+            </view>
+            <button hover-class='none' form-type='submit' bindtap='openLocation' data-name="location">
+              <span class='iconfont icon-shouhuodizhi'></span>
+            </button>
+          </view>
+          <button hover-class='none' form-type='submit' data-name="txl" class='addPhoneContact' bindtap='addPhoneContact'>添加到通讯录</button>
+        </view>
+
+      </view>
+
+      <!-- <view class='infoDetail' wx:if="{{tipsShow}}">
+        <view class='title'>
+          <view>
+            <view></view>
+            <text>我的标签</text>
+          </view>
+        </view>
+        <view class='tipsList'>
+          <block wx:for='{{tips}}' wx:key='idx'>
+            <view class='{{item.hasZan?"active":""}}' data-id='{{item.id}}' data-index='{{index}}' data-tips='{{tips}}' catchtap='tipsZan'>
+              {{item.title}}({{item.num}}) 
+            </view>
+          </block>
+        </view>
+      </view> -->
+
+      <view class='infoDetail' wx:if="{{introduction.text[0].length>0  || tips.length>0}}"> 
+        <view class='title'>
+          <view>
+            <view></view>
+            <text>个人简介</text>
+          </view>
+        </view>
+        <view class='introduction'>
+          <view class='userAudio' wx:if='{{user.audiourl}}'>
+            <image class='userAudioImg' src='{{user.img}}'></image>
+            <view class='userAudioContent' catchtap='changeAudio'>
+              <image src='http://www.mojingkj.cn/static/images/audioPlay.gif?k=222' hidden='{{!audioPlay}}'></image>
+              <image src='http://www.mojingkj.cn/static/images/audioPlay.png' hidden='{{audioPlay}}'></image>
+              <text class='userAudioAngle1'></text>
+              <text class='userAudioAngle2'></text>
+            </view>
+            <text class='userAudioCircel'></text>
+            <text class='userAudioText' wx:if='{{audioMin>0}}'>{{audioMin}}:{{audioSec}}</text>
+            <text class='userAudioText' wx:if='{{audioMin==0}}'>{{audioSec}}</text>
+          </view>
+          <block wx:for='{{introduction.text}}' wx:key='idx'>
+            <view class='intro-wrap'>{{item}}</view>
+          </block>
+          <view class='tipsList'>
+            <block wx:for='{{tips}}' wx:key='idx'>
+              <button class=' tips {{item.hasZan?"active":""}}' data-id='{{item.id}}' data-index='{{index}}' data-tips='{{tips}}' catchtap='tipsZan'  form-type='submit' hover-class='none'>
+                <image src="{{item.hasZan?'/img/zan1.png':'/img/zan.png'}}" class='zanImg' mode='widthFix'></image>
+                {{item.title}}({{item.num}})
+              </button>
+            </block>
+          </view>
+        </view>
+      </view>
+      
+      <view class='infoDetail' wx:if="{{caselist.length > 0}}">
+        <view class='title'>
+          <view class='tit-flex-row'>
+            <view></view>
+            <text>我的案例</text>
+            <view class='toMore' bindtap='toCaseList'>更多></view>
+          </view>
+        </view>
+        <view class='case-wrap'>
+          <!-- 案例图 -->
+          <block wx:for="{{ caselist }}" wx:for-index="index" wx:for-item="case" >
+            <view class='case-item' wx:if="{{index < 3}}">
+              <image bindtap='toDetail' id="{{ case.case_id }}" src="{{ case.img }}" mode='widthFix'></image>
+              <view bindtap='toDetail' id="{{ case.case_id }}" class='case-row'>
+                <text class='name'>{{ case.title }}</text>
+              </view> 
+            </view>
+          </block>
+        </view>
+      </view>
+
+      <view class='infoDetail' wx:if="{{cardinfo.cominfo}}">
+        <view class='title'>
+          <view>
+            <view></view>
+            <text>我的企业</text>
+          </view>
+        </view>
+        <view class='company'>
+          <view class='company-row'>
+            <image src='{{cardinfo.cominfo.logo}}'></image>
+            <text>{{cardinfo.cominfo.name}}</text>
+            <!-- <view class='website'>进入官网</view> -->
+          </view>
+          <view class='company-info'>
+            <view class='content'>
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='infoDetail bot' wx:if='{{productShow}}'>
+        <view class='title'>
+          <view>
+            <view></view>
+            <text>我的照片</text>
+          </view>
+        </view>
+        <button class='introductionImg' wx:if="{{introduction.img.length>0}}"  form-type='submit' hover-class='none'>
+          <block wx:for='{{introduction.img}}' wx:key='idx'>
+            <image src='{{item}}' mode='widthFix'></image>
+          </block>
+        </button>
+      </view>
+      
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{now_uid!=cardinfo.userid}}">
+    <button class='myCard' catchtap='tomyCards' hover-class='none' form-type='submit'>
+      <image src='/img/card.png'></image>
+      <text wx:if="{{allnum>0}}"></text>
+    </button>
+
+    <view class='notes' catchtap='tochat'>
+      <image src='/img/notes.png'></image>
+      <view>咨询</view>
+      <text wx:if='{{msgcount > 0}}'>{{msgcount>99?"99":msgcount}}</text>
+    </view>
+  </view>
+  <!-- <navigator wx:if="{{!isp}}" class='tomanage' hover-class='none' url='/pages/manage1/manage1'>M</navigator> -->
+
+  <!-- 二维码预览 -->
+  <view class='previewCode' wx:if='{{previewShow}}' catchtap='previewHide'>
+    <view class='previewCodeContainer'>
+      <image class='previewCodeUserImg' src='{{user.img}}'></image>
+      <text class='previewCodeUserName'>{{user.name}}</text>
+      <image class='previewCodeImg' src='{{previewCode}}' mode='widthFix'></image>
+    </view>
+  </view>
+
+  <!-- 新消息弹窗 -->
+  <button class='newMessage' wx:if='{{newMessageShow}}' catchtap='tochat' hover-class='none' form-type='submit' style="top:{{navH + 'px'}}">
+    <view class='newMessageCon'>
+      <image src='{{user.img}}'></image>
+      <view>
+        <view>{{user.name}}</view>
+        <text>你有{{msgcount}}条新消息</text>
+      </view>
+    </view>
+    <view class='newMessageNum'>{{msgcount}}</view>
+  </button>
+
+  <view class='tabbar'>
+    <block wx:for='{{tabbar}}' wx:key='idx'>
+      <button class='{{tabbarIndex == index?"active":""}}' data-url='{{item.url}}' catchtap='{{islogin ?"tabbarNav":""}}'  hover-class='none' form-type='submit'>
+        <image src='{{tabbarIndex == index?item.imgSelect:item.img}}'></image>
+        <text>{{item.text}}</text>
+      </button>
+    </block>
+  </view>
+
+  <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+    <action-sheet-item bindtouchstart="bindMenu1">
+      <button open-type="share"  hover-class='none' form-type='submit'>发给好友</button>
+    </action-sheet-item>
+    <action-sheet-item bindtap="bindMenu2">
+      <button  hover-class='none' form-type='submit'>生成卡片</button>
+    </action-sheet-item>
+    <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+  </action-sheet>
+</form>
+
+<!-- 回到首页 -->
+<view class="activity-wrap" bindtap='goHome'><span class='iconfont icon-shouye'></span></view>

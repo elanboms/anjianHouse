@@ -1,0 +1,84 @@
+.card{
+  background: #fff;
+  border-radius: 0;
+  background: linear-gradient(to bottom,#DEDEDC, #fff);
+  box-sizing: border-box;
+  padding: 30rpx 30rpx 35rpx;
+  margin: 0rpx auto;
+  position: relative;
+}
+.cardInfo{
+  box-shadow: 0 15rpx 15rpx rgba(0,0,0,.05);
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.user{
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.userInfo{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 15rpx;
+}
+.userName{
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #000;
+  margin:0 10rpx 0 0;
+}
+.userStatus{
+  font-size: 28rpx;
+  color: #999;
+}
+.userCompany{
+  font-size: 30rpx;
+  color: #666;
+  margin-top: 20rpx;
+}
+.userImg{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-top-left-radius:15rpx;
+  border-top-right-radius:15rpx;
+}
+.cardCon{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+.cardPhone{
+  font-size:26rpx;
+  color:#AEAEAE;
+}
+
+.cardCode{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.user-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom-left-radius:10rpx;
+  border-bottom-right-radius:10rpx;
+  box-sizing:border-box;
+  padding:28rpx 30rpx;
+}
+.userImgWrap{
+  height: 480rpx;
+  overflow: hidden;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
