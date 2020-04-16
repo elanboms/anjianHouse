@@ -143,9 +143,9 @@
 <!-- 筛选 -->
 <view class="position-area" hidden="{{more.isTap!=true}}">
   <view class="mengban" catchtouchmove="preventTouchMove"></view>
-  <view class="position-area-con">
+  <view class="position-area-con" >
 
-    <scroll-view scroll-y enable-flex='true' class="position-area-list flex-c root">
+    <view class="position-area-list position-area-list2  root">
 
       <block wx:for='{{moreState}}' wx:for-index='idx' wx:key=''>
         <view class="moreState-tit">{{item.moreStateTit}}</view>
@@ -158,7 +158,7 @@
         </view>
       </block>
 
-    </scroll-view>
+    </view>
 
     <view class="position-area-btn-group flex-b">
       <button class="position-area-clear" catchtap="moreStateClear">清空</button>

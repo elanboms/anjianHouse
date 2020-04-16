@@ -1,0 +1,46 @@
+<!--pages/house-detail/house-info/house-info.wxml-->
+
+<view class="fixed-top">
+  <scroll-view enable-flex='true' class="scroll-area flex" scroll-x>
+    <block wx:for='{{typeList}}'>
+      <view data-index="{{index}}" class="house-moreinfo-type {{currentTap==index?'active':''}}" catchtap="selectAreaType">{{item.name}}</view>
+    </block>
+  </scroll-view>
+</view>
+
+<view class="root">
+
+  <!-- 公告 -->
+  <view class="info-top">
+    <view class="info-top-tit">优惠公告</view>
+    <view class="info-top-con">  
+      <view class="info-top-dot"></view>
+      <view class="info-top-dot"></view>
+      <view class="info-top-dot"></view>
+      <view class="info-top-dot"></view>
+      <view>一、房屋价格在4月30日24时前，可同时享受以下优惠，优惠后的价格请自行计算。</view>
+    </view>
+  </view>
+
+  <block wx:for='{{1}}'>
+    <view class="house-list-itm">
+      <view>房号： <text class="house-list-txt">11号楼-1-1102</text> </view>
+      <view class="align-c">
+        <view>
+          <view> 建面约：132m </view>
+          <view>户型：四房两厅两卫</view>
+          <button class="house-btn1">查看户型详情</button>
+        </view>
+        <view>
+          <view> 装修：豪装 </view>
+          <view> 单价：7208元/m </view>
+          <view>总价：<text class="house-list-price">56万元</text> </view>
+        </view>
+        <view>
+          <button class="house-btn2">等待认购</button>
+        </view>
+
+      </view>
+    </view>
+  </block>
+</view>

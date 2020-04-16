@@ -26,6 +26,10 @@ Page({
 
   getAlbumList: function() { //获取相册
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    })
     wx.request({
       url: app.globalData.hostUrl + 'default/album',
       method: 'GET',
@@ -38,6 +42,7 @@ Page({
         for (var index in res.data.album) {
           imgList = imgList.concat(res.data.album[index].picurl);
         }
+        wx.hideLoading()
         that.setData({
           album: res.data.album,
           photoList: imgList,

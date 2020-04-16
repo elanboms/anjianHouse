@@ -12,10 +12,10 @@
 <view class="root" style="{{album.length==0?'margin-bottom:150rpx;':''}}">
 
   <view class="houseDetail-top flex-b">
-    <view class="h1 elli" style="width:450rpx;">{{build.title}}</view>
+    <view class="h1 elli" style="width:430rpx;">{{build.title}}</view>
     <view class="ar flex" catchtap="openVR">
       <image src="../../images/ar.png"></image>
-      <view>全景观房</view>
+      <view>样板房解析</view>
     </view>
     <view class="flex-c" catchtap="storeTap">
       <image class="collect-img" src="{{isCollect==1?'../../images/collect-true@2x.png':'../../images/collect@2x.png'}}"></image>
@@ -55,7 +55,41 @@
 
   <button hover-class="none" class="more-info-btn" data-id="{{build.id}}" catchtap="openMoreHouseInfo">更多楼盘信息</button>
 
+  <!-- 广告位 -->
   <image wx:if='{{image_deps}}' class="add-img" catchtap="openAddTap" mode="widthFix" src="{{image_deps}}"></image>
+
+  <!-- 楼盘解析 -->
+  <view class="title flex-b">
+    <view class="title-left h2">楼盘解析</view>
+  </view>
+  <image class="" catchtap="" style="width:100%;border-radius:10rpx;" mode="widthFix" src="{{image_deps}}"></image>
+
+  <view class="title flex-b">
+    <view class="title-left h2">置业顾问</view>
+  </view>
+
+  <view>
+    <scroll-view enable-flex='true' class="card-area flex" scroll-x>
+      <block wx:for='{{3}}' wx:key=''>
+        <view class="card-section flex">
+          <image class="card-section-avatar" src="{{image_deps}}"></image>
+          <view>
+            <view class="card-name">moumoumoumoumoumoumoumoumou</view>
+            <view class="flex">
+              <view class="list-section-tag list-section-tag-1" data-phone='{{item.phone}}' catchtap='makePhoneCall'>
+                <image mode="widthFix" src="/images/mycard-logo-1.png"></image>
+                <view class="list-section-text">电话</view>
+              </view>
+              <view data-id="{{item.id}}" catchtap="tocard" class="list-section-tag list-section-tag-2">
+                <image mode="widthFix" src="/images/mycard-logo-2.png"></image>
+                <view class="list-section-text">咨询</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
 
   <!-- 地图 -->
   <view class="title flex-b">
@@ -63,10 +97,12 @@
   </view>
 
   <view>
-    <map class="map" id="map" longitude="{{build.longitude}}" latitude="{{build.latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange"
+    <map catchtap="openMap" class="map" id="map" longitude="{{build.longitude}}" latitude="{{build.latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange"
       show-location style=""></map>
     <!-- <view class="map-call" catchtap="callTap">咨询更多周边配套</view> -->
   </view>
+
+
 
   <!-- 相册 -->
   <view class="title flex-b" wx:if='{{album.length!=0}}'>
@@ -106,7 +142,7 @@
 <!-- 预约弹窗 -->
 <view class="dialog" hidden="{{hiddenDialog}}">
   <view class="mengban" catchtouchmove="preventTouchMove"></view>
-  <view class="dialog-appoint animation" catchtouchmove="preventTouchMove" >
+  <view class="dialog-appoint animation" catchtouchmove="preventTouchMove">
     <image catchtap="closeDialog" class="close-dialog" src="../../images/close@2x.png"></image>
     <view class="dialog-appoint-tit h2 center">预约看房</view>
     <view class="gray font-24 center">留下您的联系方式，稍后会有专属顾问与您联系！</view>

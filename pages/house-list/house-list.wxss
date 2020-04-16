@@ -106,6 +106,9 @@
 .position-area-list {
   height: 530rpx;
 }
+.position-area-list2{
+  overflow-y:scroll; 
+}
 
 .position-area-section view view {
   height: 98rpx;

@@ -3,8 +3,8 @@
 }
 
 .album-img{
-  width: 160rpx;
-  height: 160rpx;
+  width: 220rpx;
+  height: auto;
   margin: 13rpx 0rpx;
   margin-right: 11rpx;
 }

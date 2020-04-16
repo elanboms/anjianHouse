@@ -85,6 +85,8 @@ Page({
   },
 
 
+
+
   // 预览图片
   previewImage: function(e) {
     console.log(e)
@@ -445,21 +447,125 @@ Page({
   },
 
   // 楼盘地址打开地图
-  openMap: function () {
-    console.log("地址")
-    var that = this;
-    wx.authorize({
-      scope: "scope.userLocation",
+  // openMap: function () {
+  //   console.log("地址")
+  //   var that = this;
+  //   wx.authorize({
+  //     scope: "scope.userLocation",
+  //     success(res) {
+  //       wx.openLocation({
+  //         latitude: Number(that.data.build.latitude),
+  //         longitude: Number(that.data.build.longitude),
+  //         name: that.data.build.location
+  //       })
+  //     }
+  //   })
+  // },
+
+
+
+  openMap: function () { //打开地图选择位置
+    let that = this;
+    wx.getSetting({
       success(res) {
-        wx.openLocation({
-          latitude: Number(that.data.build.latitude),
-          longitude: Number(that.data.build.longitude),
-          name: that.data.build.location
-        })
+        if (!res.authSetting['scope.userLocation']) {
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success(re) {
+              wx.openLocation({
+                latitude: Number(that.data.build.latitude),
+                longitude: Number(that.data.build.longitude),
+                name: that.data.build.location
+              })
+            },
+            fail(re) {
+              console.log(111111)
+              console.log(re)
+              that.getSetting();
+            },
+          })
+        } else { //已授权
+          wx.openLocation({
+            latitude: Number(that.data.build.latitude),
+            longitude: Number(that.data.build.longitude),
+            name: that.data.build.location
+          })
+        }
       }
     })
+
   },
 
+  getSetting(e) { //获取权限设置
+    let that = this;
+    wx.getSetting({
+      success: function (res) {
+        console.log(res.authSetting)
+        if (!res.authSetting['scope.userLocation']) {
+          wx.showModal({
+            title: '是否授权位置权限',
+            content: '需要获取您的位置权限，请确认授权，否则无法调用地图',
+            showCancel: true,
+            success: function (res) {
+              if (res.cancel) {
+                wx.showToast({
+                  title: '授权失败',
+                  icon: 'success',
+                  duration: 1000
+                })
+              } else { //确定
+                wx.openSetting({
+                  success(re) {
+                    console.log(re.authSetting)
+                    if (re.authSetting["scope.userLocation"]) {
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 1000
+                      })
+                      that.openMap();
+                    } else {
+                      wx.showToast({
+                        title: '授权失败!',
+                        icon: 'success',
+                        duration: 1000
+                      })
+                    }
+                  }
+                })
+              }
+            },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+        } else { //已授权
+          // that.openMap();
+        }
+
+      },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+
+  },
+
+  makePhoneCall(e) {
+    var phone = e.currentTarget.dataset.phone;
+    wx.makePhoneCall({
+      phoneNumber: phone,
+    })
+  },
+  tocard: function (e) {
+    console.log(123)
+    var id = e.currentTarget.dataset.id;
+    console.log(id)
+    if (id) {
+      app.siteInfo.pid = id;
+      wx.redirectTo({
+        url: '/packageB/pages/index/index',
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

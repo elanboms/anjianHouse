@@ -32,9 +32,11 @@
 
 .ar {
   align-items: center;
-  width: 130rpx;
   height: 44rpx;
-  margin-left: 20rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
   background: rgba(246, 51, 45, 1);
   border-radius: 8rpx;
   font-size: 22rpx;
@@ -208,7 +210,7 @@
 
 .scroll-area {
   white-space: nowrap;
-  height: 370rpx;
+  height: 450rpx;
 }
 
 .photo-section {
@@ -216,8 +218,10 @@
 }
 
 .photo-img {
-  width: 200rpx;
-  height: 160rpx;
+  /* width: 200rpx;
+  height: 160rpx; */
+  width: 300rpx;
+  height: 240rpx;
 }
 
 .photo-text {
@@ -418,4 +422,81 @@ input {
   background: rgba(248, 146, 71, 1);
   color: rgba(255, 255, 255, 1) !important;
 }
-.add-img{width: 100%;height: auto;margin: 40rpx 0 0;}
+
+.add-img {
+  width: 100%;
+  height: auto;
+  margin: 40rpx 0 0;
+}
+
+/* 职业顾问 */
+
+.card-area {
+  white-space: nowrap;
+  height: 180rpx;
+}
+
+.card-section {
+  height: 160rpx;
+  margin-right: 55rpx;
+  display: flex;
+  align-items: center;
+  border: 2rpx solid #e6e6e6;
+  border-radius: 10rpx;
+  box-shadow: 3rpx 3rpx 3rpx #e6e6e6;
+  box-sizing: border-box;
+  padding: 15rpx 30rpx;
+}
+
+.card-section-avatar {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-right: 25rpx;
+}
+
+.card-name {
+  width: 260rpx;
+  margin-bottom: 20rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.list-section-tag {
+  width: 120rpx;
+  height: 45rpx;
+  border-radius: 30rpx;
+  border: 1rpx solid #0cc2c3;
+  color: #0cc2c3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-section-tag image {
+  width: 26rpx;
+  flex-shrink: 0;
+  margin-right: 10rpx;
+}
+
+.list-section-name {
+  width: 140rpx;
+}
+
+.list-section-tag .list-section-text {
+  font-size: 24rpx;
+}
+
+.list-section-tag-1 {
+}
+
+.list-section-tag-2 {
+  margin-left: 20rpx;
+  border: 1rpx solid #3295ea;
+}
+
+.list-section-tag-2 .list-section-text {
+  color: #3295ea;
+}
