@@ -44,6 +44,11 @@
     </view>
   </view>
 </view>
+
+<view wx:if='{{advertise}}' class="root">
+ <image  class="addv-img" data-id="{{advertise.id}}" catchtap="openRule" mode="widthFix" src="{{advertise.image}}"></image>
+</view>
+
 <view class="hr-15"></view>
 
 <!-- 热门活动 -->

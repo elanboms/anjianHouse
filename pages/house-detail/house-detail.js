@@ -29,6 +29,7 @@ Page({
     phone: '', //预约看房电话
     date: '', //预约看房日期
     image_deps:'', //广告
+    currentTap:'0',
   },
 
   openVR: function() {
@@ -42,6 +43,13 @@ Page({
     let that =this
     wx.navigateTo({
       url: '/pages/house-form/house-form?id=' + that.data.id,
+    })
+  },
+
+  openRule(){
+    let that = this
+    wx.navigateTo({
+      url: '/pages/house-detail/house-rule/house-rule?id=' + that.data.id,
     })
   },
 
@@ -357,7 +365,9 @@ Page({
           isCollect: res.data.build.isCollect,
           sharePhoto: res.data.build.shareimg,
           sharename: res.data.build.sharename,
-          image_deps: res.data.image_deps
+          image_deps: res.data.image_deps,
+          nearby_info: res.data.build.nearby_info,
+          employees: res.data.build.employees
         })
         that.getCode(); //获取海报二维码
         
@@ -565,6 +575,19 @@ Page({
         url: '/packageB/pages/index/index',
       })
     }
+  },
+
+  // 类型选择
+  selectAreaType: function (e) {
+    console.log(e)
+    var that = this;
+    var currentTap = e.currentTarget.dataset.index;
+    if (currentTap == that.data.currentTap) {
+      return;
+    }
+    that.setData({
+      currentTap: currentTap
+    })
   },
 
   /**

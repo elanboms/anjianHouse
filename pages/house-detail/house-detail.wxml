@@ -59,22 +59,23 @@
   <image wx:if='{{image_deps}}' class="add-img" catchtap="openAddTap" mode="widthFix" src="{{image_deps}}"></image>
 
   <!-- 楼盘解析 -->
-  <view class="title flex-b">
+  <view wx:if='{{build.analyze_image}}' class="title flex-b">
     <view class="title-left h2">楼盘解析</view>
   </view>
-  <image class="" catchtap="" style="width:100%;border-radius:10rpx;" mode="widthFix" src="{{image_deps}}"></image>
+  <image wx:if='{{build.analyze_image}}' catchtap="openRule" style="width:100%;border-radius:10rpx;" mode="widthFix" src="{{build.analyze_image}}"></image>
 
-  <view class="title flex-b">
+  <view class="title flex-b" wx:if='{{nearby_info.length>0}}'>
     <view class="title-left h2">置业顾问</view>
   </view>
 
-  <view>
+  <!-- 置业顾问 -->
+  <view wx:if='{{employees.length>0}}'>
     <scroll-view enable-flex='true' class="card-area flex" scroll-x>
-      <block wx:for='{{3}}' wx:key=''>
+      <block wx:for='{{employees}}' wx:key=''>
         <view class="card-section flex">
-          <image class="card-section-avatar" src="{{image_deps}}"></image>
+          <image class="card-section-avatar" src="{{item.logo}}"></image>
           <view>
-            <view class="card-name">moumoumoumoumoumoumoumoumou</view>
+            <view class="card-name">{{item.cardname}}</view>
             <view class="flex">
               <view class="list-section-tag list-section-tag-1" data-phone='{{item.phone}}' catchtap='makePhoneCall'>
                 <image mode="widthFix" src="/images/mycard-logo-1.png"></image>
@@ -122,8 +123,31 @@
     </block>
   </scroll-view>
 
+  <!-- 周边配套 -->
+  <view class="title flex-b" wx:if='{{nearby_info.length!=0}}'>
+    <view class="title-left h2">周边配套</view>
+  </view>
+
+  <view class="fixed-top-2">
+    <scroll-view enable-flex='true' class="scroll-area-2 flex" scroll-x>
+      <block wx:for='{{nearby_info}}'>
+        <view data-index="{{index}}" class="house-moreinfo-type {{currentTap==index?'active':''}}" catchtap="selectAreaType">{{item.title}}</view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <block wx:for='{{nearby_info}}' wx:for-index='idx'>
+    <view hidden="{{idx!=currentTap}}" class="rich-txt" data-index="{{idx}}" catchtap="selectAreaType">
+      {{item.content}}
+    </view>
+  </block>
+
+
+
 </view>
 
+
+<!-- 底部按钮 -->
 <view class="bottom-fixed flex {{bottomActive?'bottom-fixed active':''}}">
   <button catchtap="sharePhotoTap" class="fixed-share-section flex-c">
     <image class="fixed-share-img" src="../../images/share@2x.png"></image>

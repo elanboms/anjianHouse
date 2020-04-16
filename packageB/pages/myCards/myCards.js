@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据 
    */
   data: {
-    cards: []
+    cards: [],
   },
   toindex:function(){
     wx.request({

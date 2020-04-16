@@ -210,7 +210,7 @@
 
 .scroll-area {
   white-space: nowrap;
-  height: 450rpx;
+  height: 300rpx;
 }
 
 .photo-section {
@@ -500,3 +500,39 @@ input {
 .list-section-tag-2 .list-section-text {
   color: #3295ea;
 }
+
+
+
+.fixed-top-2 {
+  padding-right: 30rpx;
+  height: 66rpx;
+  border-bottom: 2rpx solid #e5e5e5;
+}
+
+.scroll-area-2 {
+  height: 66rpx;
+  white-space: nowrap;
+  margin: 0rpx 0 30rpx;
+  box-sizing: border-box;
+}
+
+.house-moreinfo-type {
+  position: relative;
+  box-sizing: border-box;
+  margin-left: 20rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  text-align: center;
+  background: #fff;
+  height: 56rpx;
+  line-height: 56rpx;
+}
+
+.house-moreinfo-type:last-child {
+  margin-right: 30rpx;
+}
+
+.house-moreinfo-type.active {
+  color: #f6332d;
+}
+.rich-txt{margin-bottom: 150rpx;box-sizing: border-box;padding: 20rpx 0;min-height: 300rpx;}

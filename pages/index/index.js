@@ -63,7 +63,8 @@ Page({
           isadvertise,
           picture: res.data.picture,
           top_deposit,
-          top_vr
+          top_vr,
+          advertise: res.data.advertise
         })
 
       }
@@ -75,6 +76,12 @@ Page({
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/house-form/house-form?id=' + id,
+    })
+  },
+
+  openRule(e){
+    wx.navigateTo({
+      url: '/pages/index-rule/index-rule',
     })
   },
 

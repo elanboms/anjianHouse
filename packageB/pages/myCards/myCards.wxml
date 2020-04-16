@@ -25,7 +25,7 @@
   <view class='lookMine' wx:if="{{show_ig==2}}" catchtap='toindex'>返回名片</view>  -->
 
   <block wx:for='{{cards}}'>
-    <view class="list-section" catchtap='tocard' data-id='{{item.card_id}}'>
+    <view class="list-section" catchtap='tocard' data-id='{{item.id}}'>
       <image class="list-section-img" src="{{item.logo}}" ></image>
       <view class="list-section-name elli">{{item.cardname}}</view>
       <view class="list-section-tag list-section-tag-1" data-phone='{{item.phone}}' catchtap='makePhoneCall'>

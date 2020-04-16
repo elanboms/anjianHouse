@@ -35,7 +35,9 @@
     "pages/house-detail/album/album",
     "pages/news/news-submit/news-submit",
     "pages/news/news-detail/news-detail",
-    "pages/house-detail/house-info/house-info"
+    "pages/house-detail/house-info/house-info",
+    "pages/house-detail/house-rule/house-rule",
+    "pages/index-rule/index-rule"
   ],
   "subPackages": [
     {

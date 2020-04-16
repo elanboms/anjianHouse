@@ -42,6 +42,7 @@
   border-radius: 10rpx;
   box-sizing: border-box;
   padding-bottom: 14rpx;
+  margin-bottom: 30rpx;
 }
 
 .info-top-tit {
@@ -93,6 +94,7 @@
   background:#ffffff;
   box-sizing: border-box;
   padding: 18rpx 20rpx;
+  margin-bottom: 20rpx;
   border: 2rpx solid #e5e5e5;
   box-shadow: 1rpx 3rpx 5rpx #E5E5E5;
   border-radius:8rpx;
@@ -107,12 +109,39 @@
   font-size: 30rpx;
   color: #F6332D;
   font-weight: 500;
+  text-decoration: underline;
 }
 .house-btn1{
   width:180rpx;
-  height:26rpx;
+  height:36rpx;
+  line-height: 36rpx;
   color: #ffffff;
   background:rgba(246,51,45,1);
   border-radius:6rpx;
   font-size: 22rpx;
+}
+.house-tab{
+  width: 33%;
+  flex: 1;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 15rpx 0;
+  padding-right: 15rpx;
+  margin-right: 20rpx;
+  border-right: 1rpx solid #E5E5E5;
+  line-height: 50rpx;
+}
+.house-btn2{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width:80rpx;
+  height:90rpx;
+  margin: 0 25rpx;
+  line-height: 35rpx;
+  color: #ffffff;
+  font-size: 26rpx;
+  background:rgba(246,51,45,1);
+  border-radius:10rpx;
 }

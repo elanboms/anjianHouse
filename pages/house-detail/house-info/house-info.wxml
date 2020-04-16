@@ -22,22 +22,25 @@
     </view>
   </view>
 
-  <block wx:for='{{1}}'>
+  <block wx:for='{{5}}'>
     <view class="house-list-itm">
       <view>房号： <text class="house-list-txt">11号楼-1-1102</text> </view>
       <view class="align-c">
-        <view>
-          <view> 建面约：132m </view>
-          <view>户型：四房两厅两卫</view>
+        <view class="house-tab">
+          <view class="elli"> 建面约：132m </view>
+          <view class="elli">户型：四房两厅两卫</view>
           <button class="house-btn1">查看户型详情</button>
         </view>
-        <view>
-          <view> 装修：豪装 </view>
-          <view> 单价：7208元/m </view>
+        <view class="house-tab">
+          <view class="elli"> 装修：豪装 </view>
+          <view class="elli"> 单价：7208元/m </view>
           <view>总价：<text class="house-list-price">56万元</text> </view>
         </view>
         <view>
-          <button class="house-btn2">等待认购</button>
+          <button class="house-btn2">
+            <view>等待</view>
+            <view>认购</view>
+          </button>
         </view>
 
       </view>
