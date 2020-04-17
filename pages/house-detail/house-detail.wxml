@@ -58,6 +58,11 @@
   <!-- 广告位 -->
   <image wx:if='{{image_deps}}' class="add-img" catchtap="openAddTap" mode="widthFix" src="{{image_deps}}"></image>
 
+  <!-- 销售情况 -->
+  <view wx:if='{{build.id == 4}}'>
+    <button hover-class="none" class="more-info-btn" catchtap="showRooms">销售情况</button>
+  </view>
+
   <!-- 楼盘解析 -->
   <view wx:if='{{build.analyze_image}}' class="title flex-b">
     <view class="title-left h2">楼盘解析</view>
@@ -138,7 +143,7 @@
 
   <block wx:for='{{nearby_info}}' wx:for-index='idx'>
     <view hidden="{{idx!=currentTap}}" class="rich-txt" data-index="{{idx}}" catchtap="selectAreaType">
-      {{item.content}}
+      <image src="{{item.content}}" mode="widthFix"style="width:640rpx;margin:3rpx auto;"></image> 
     </view>
   </block>
 

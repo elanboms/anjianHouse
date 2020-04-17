@@ -55,7 +55,7 @@
 .info-top-con {
   position: relative;
   width: 660rpx;
-  height: 395rpx;
+  /* height: 395rpx; */
   margin: 0 auto;
   box-sizing: border-box;
   padding: 30rpx 20rpx;

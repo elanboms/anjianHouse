@@ -699,6 +699,10 @@ Page({
   /**
    * 防止弹出层蒙板触摸穿透
    */
-  preventTouchMove: function() {}
-
+  preventTouchMove: function() {},
+  showRooms(e){
+    wx.navigateTo({
+      url: '/pages/house-detail/house-info/house-info',
+    })
+  }
 })

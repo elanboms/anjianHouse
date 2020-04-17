@@ -18,26 +18,30 @@
       <view class="info-top-dot"></view>
       <view class="info-top-dot"></view>
       <view class="info-top-dot"></view>
-      <view>一、房屋价格在4月30日24时前，可同时享受以下优惠，优惠后的价格请自行计算。</view>
+      <rich-text nodes="{{content}}"></rich-text>
     </view>
   </view>
 
-  <block wx:for='{{5}}'>
+  <block wx:for='{{roomList[currentTap].roomList}}'>
     <view class="house-list-itm">
-      <view>房号： <text class="house-list-txt">11号楼-1-1102</text> </view>
+      <view>房号： <text class="house-list-txt">{{item.buildnum}}号楼-1-{{item.roomnum}}</text> </view>
       <view class="align-c">
         <view class="house-tab">
-          <view class="elli"> 建面约：132m </view>
-          <view class="elli">户型：四房两厅两卫</view>
+          <view class="elli"> 建面约：{{item.acreage_build}}m² </view>
+          <view class="elli">户型：{{item.room_type}}</view>
           <button class="house-btn1">查看户型详情</button>
         </view>
         <view class="house-tab">
-          <view class="elli"> 装修：豪装 </view>
-          <view class="elli"> 单价：7208元/m </view>
-          <view>总价：<text class="house-list-price">56万元</text> </view>
+          <view class="elli"> 装修：{{item.decoration}} </view>
+          <view class="elli"> 单价：{{item.price}}元/m </view>
+          <view>总价：<text class="house-list-price">{{(item.price * item.acreage_build / 10000)}}万元</text> </view>
         </view>
         <view>
-          <button class="house-btn2">
+          <button class="house-btn1" wx:if="{{item.status == 1}}">
+            <view>已被</view>
+            <view>认购</view>
+          </button>
+          <button class="house-btn2" wx:else>
             <view>等待</view>
             <view>认购</view>
           </button>
